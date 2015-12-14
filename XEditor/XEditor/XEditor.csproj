@@ -54,6 +54,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XML_Model\Line.cs" />
+    <Compile Include="XML_Model\Lines.cs" />
+    <Compile Include="XML_Model\Schedule.cs" />
+    <Compile Include="XML_Model\Start.cs" />
+    <Compile Include="XML_Model\Starts.cs" />
+    <Compile Include="XML_Model\Station.cs" />
+    <Compile Include="XML_Model\Stations.cs" />
+    <Compile Include="XML_Model\Stop.cs" />
+    <Compile Include="XML_Model\Track.cs" />
+    <Compile Include="XML_Model\Tracks.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,9 +89,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="XML_Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resource\VeSchedule.xml" />
   </ItemGroup>
