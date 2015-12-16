@@ -18,5 +18,15 @@ namespace XEditor.XML_Model
             ID = p_iId;
             Name = p_strName;
         }
+
+        // Functionality
+
+
+        override public string ToString()
+        {
+            string ret = ID.ToString() + " / " + Name;
+
+            return ret;
+        }
     }
 }
