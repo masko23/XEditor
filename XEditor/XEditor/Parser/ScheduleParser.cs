@@ -37,6 +37,7 @@ namespace XEditor.Parser
 
         }
 
+
         public void read()
         {
             try
@@ -44,6 +45,8 @@ namespace XEditor.Parser
                 reader.Read();
 
                 parse();
+
+                reader.Close();
             }
             catch (Exception ex)
             {

@@ -25,11 +25,7 @@ namespace XEditor
             ScheduleParser parser = new ScheduleParser(schedule);
             parser.read();
 
-            Console.WriteLine("/nStored:");
-            foreach(Station stat in schedule.Stations.StationList)
-            {
-                Console.WriteLine(stat.ToString());
-            }
+            schedule.save();
         }
     }
 }
