@@ -43,9 +43,7 @@ namespace XEditor.Parser
             try
             {
                 reader.Read();
-
                 parse();
-
                 reader.Close();
             }
             catch (Exception ex)
@@ -60,38 +58,60 @@ namespace XEditor.Parser
             document = new XmlDocument();
             document.Load(reader);
 
-            // read stations
+            
             try
             {
-                XmlNodeList stations_node = document.GetElementsByTagName("Stations");
-                if(stations_node[0].HasChildNodes)
-                {
-                    XmlNodeList stations = stations_node[0].ChildNodes;
-                    for(int i = 0; i < stations.Count; i++)
-                    {
-                        int id;
-                        string name;
-                        string strId;
+                // read stations
+                XmlDocument tagStations = new XmlDocument();
+                string xmlStations = "<Stations>"+document.GetElementsByTagName("Stations")[0].InnerXml+"</Stations>";
+                //Console.WriteLine(xmlStations
+                tagStations.LoadXml(xmlStations);
+                readStations(tagStations);
 
-                        strId = stations[i].Attributes["id"].Value;
-                        name = stations[i].InnerText;
-
-                        bool parseok = Int32.TryParse(strId, out id);
-                        if (!parseok) id = -1;
-
-                        Station station = new Station(id, name);
-                        schedule.Stations.addStation(station);
-
-                        Console.WriteLine("new station: " + station.ToString());
-                           
-                    }
-                }
              
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        // helper methods for parse()
+        private void readStations(XmlDocument tagStations)
+        {
+            if(tagStations.HasChildNodes)
+            {
+                XmlNodeList stationlist = tagStations.GetElementsByTagName("Station");
+
+                foreach(XmlNode node in stationlist)
+                {
+                    int id;
+                    string name;
+                    Station newstation;
+
+                    // get ID
+                    string attr = node.Attributes["id"].Value;
+                    bool res = Int32.TryParse(attr, out id);
+                    if(!res)
+                    {
+                        id = -1;
+                    }
+
+                    // get station name
+                    name = node.InnerText;
+
+                    // create Station
+                    newstation = new Station(id, name);
+
+                    // add to the database in memory
+                    schedule.Stations.addStation(newstation);
+
+                    //Console.WriteLine("new Station: " + newstation.ToString());
+                }
+            }
+        }
+
+
     }
 }
