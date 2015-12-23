@@ -58,17 +58,25 @@ namespace XEditor.Parser
             document = new XmlDocument();
             document.Load(reader);
 
-            
             try
             {
-                // read stations
-                XmlDocument tagStations = new XmlDocument();
-                string xmlStations = "<Stations>"+document.GetElementsByTagName("Stations")[0].InnerXml+"</Stations>";
-                //Console.WriteLine(xmlStations
-                tagStations.LoadXml(xmlStations);
-                readStations(tagStations);
+                XmlNodeList nList = document.DocumentElement.ChildNodes;
 
-             
+                foreach(XmlNode node in nList)
+                {
+                    switch(node.Name)
+                    {
+                        case "Stations":
+                            parseStations(node);
+                            break;
+                        case "Lines":
+                            parseLines(node);
+                            break;
+                        default:
+                            /* do nothing */
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -77,41 +85,34 @@ namespace XEditor.Parser
             }
         }
 
-        // helper methods for parse()
-        private void readStations(XmlDocument tagStations)
+        private void parseLines(XmlNode node)
         {
-            if(tagStations.HasChildNodes)
-            {
-                XmlNodeList stationlist = tagStations.GetElementsByTagName("Station");
 
-                foreach(XmlNode node in stationlist)
-                {
-                    int id;
-                    string name;
-                    Station newstation;
-
-                    // get ID
-                    string attr = node.Attributes["id"].Value;
-                    bool res = Int32.TryParse(attr, out id);
-                    if(!res)
-                    {
-                        id = -1;
-                    }
-
-                    // get station name
-                    name = node.InnerText;
-
-                    // create Station
-                    newstation = new Station(id, name);
-
-                    // add to the database in memory
-                    schedule.Stations.addStation(newstation);
-
-                    //Console.WriteLine("new Station: " + newstation.ToString());
-                }
-            }
         }
 
+        private void parseStations(XmlNode node)
+        {
+            XmlNodeList stations = node.ChildNodes;
 
+            foreach (XmlNode sNode in stations)
+            {
+                string sName = sNode.InnerText;
+                int sId;
+                bool idOk = Int32.TryParse(sNode.Attributes["id"].Value, out sId);
+
+                if(!idOk)
+                {
+                    sId = -1;
+                }
+
+                Station station = new Station(sId, sName);
+                schedule.Stations.addStation(station);
+
+                xLogger.add("New Station:"
+                              + Environment.NewLine + "\tName: " + station.Name
+                              + Environment.NewLine + "\tID: " + station.ID
+                              + Environment.NewLine);
+            }
+        }
     }
 }

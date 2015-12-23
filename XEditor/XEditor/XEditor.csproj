@@ -55,6 +55,12 @@
     <Compile Include="Parser\ScheduleParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xLogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xLogger.Designer.cs">
+      <DependentUpon>xLogger.cs</DependentUpon>
+    </Compile>
     <Compile Include="XML_Model\Line.cs" />
     <Compile Include="XML_Model\Lines.cs" />
     <Compile Include="XML_Model\Schedule.cs" />
@@ -77,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="xLogger.resx">
+      <DependentUpon>xLogger.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -15,10 +15,13 @@ namespace XEditor
     public partial class Form1 : Form
     {
         private Schedule schedule;
+        private xLogger logger;
 
         public Form1()
         {
             InitializeComponent();
+            logger = new xLogger();
+            logger.Show();
 
             schedule = new Schedule("Veszprem");
 
@@ -26,6 +29,11 @@ namespace XEditor
             parser.read();
 
             schedule.save();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            logger.Hide();
         }
     }
 }
