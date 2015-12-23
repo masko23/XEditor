@@ -35,6 +35,12 @@ namespace XEditor.XML_Model
             return retLine;
         }
 
+        // add a Line to the list
+        public void addLine(Line line)
+        {
+            LineList.Add(line);
+        }
+
         // Remove a Line by reference
         public void removeLine(Line p_line)
         {

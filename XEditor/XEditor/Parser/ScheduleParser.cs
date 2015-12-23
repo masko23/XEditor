@@ -87,7 +87,95 @@ namespace XEditor.Parser
 
         private void parseLines(XmlNode node)
         {
+            XmlNodeList lines = node.ChildNodes;
 
+            foreach(XmlNode lNode in lines)
+            {
+                parseLine(lNode);
+            }
+        }
+
+        private void parseLine(XmlNode lNode)
+        {
+            string lName = lNode.Attributes["name"].Value;
+            Line line = new Line(lName);
+
+            XmlNodeList nList = lNode.ChildNodes;
+
+            foreach(XmlNode node in nList)
+            {
+                switch(node.Name)
+                {
+                    case "Tracks":
+                        parseTracks(node,line);
+                        break;
+                    case "Starts":
+                        parseStarts(node,line);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            schedule.Lines.addLine(line);
+        }
+
+        private void parseTracks(XmlNode node,Line line)
+        { 
+            XmlNodeList tracks = node.ChildNodes;
+
+            Track track;
+
+            foreach(XmlNode tNode in tracks)
+            {
+                int tId;
+                bool idOk = Int32.TryParse(tNode.Attributes["id"].Value,out tId);
+                if(!idOk)
+                {
+                    tId = -1;
+                }
+
+                track = new Track(tId);
+                parseStops(tNode, track);
+
+                line.Tracks.addTrack(track);
+
+            }
+        }
+
+        private void parseStops(XmlNode tNode, Track track)
+        {
+            XmlNodeList stopList = tNode.ChildNodes;
+
+            Stop stop;
+            int delay;
+            int stId;
+            Station station;
+            bool parOk;
+            foreach(XmlNode sNode in stopList)
+            {
+                parOk = Int32.TryParse(sNode.Attributes["station"].Value, out delay);
+                if(!parOk)
+                {
+                    delay = -1;
+                }
+
+                parOk = Int32.TryParse(sNode.InnerText, out stId);
+                if(!parOk)
+                {
+                    stId = -1;
+                }
+
+                station = schedule.Stations.getStation(stId);
+                stop = new Stop(station, delay);
+
+                track.Stops.Add(stop);
+            }
+        }
+
+        private void parseStarts(XmlNode node,Line line)
+        {
+           
         }
 
         private void parseStations(XmlNode node)
@@ -107,11 +195,12 @@ namespace XEditor.Parser
 
                 Station station = new Station(sId, sName);
                 schedule.Stations.addStation(station);
-
+                /*
                 xLogger.add("New Station:"
                               + Environment.NewLine + "\tName: " + station.Name
                               + Environment.NewLine + "\tID: " + station.ID
                               + Environment.NewLine);
+                              */
             }
         }
     }

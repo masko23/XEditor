@@ -10,8 +10,8 @@ namespace XEditor.XML_Model
     {
         // Attributes
         public String Name { get; }
-        private Tracks Tracks { get; }
-        private Starts Starts { get; }
+        public Tracks Tracks { get; }
+        public Starts Starts { get; }
 
         // Constructor
         public Line(string p_name)
