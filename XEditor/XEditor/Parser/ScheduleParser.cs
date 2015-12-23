@@ -154,19 +154,32 @@ namespace XEditor.Parser
             bool parOk;
             foreach(XmlNode sNode in stopList)
             {
-                parOk = Int32.TryParse(sNode.Attributes["station"].Value, out delay);
-                if(!parOk)
-                {
-                    delay = -1;
-                }
-
-                parOk = Int32.TryParse(sNode.InnerText, out stId);
+                parOk = Int32.TryParse(sNode.Attributes["station"].Value, out stId);
                 if(!parOk)
                 {
                     stId = -1;
                 }
 
+                parOk = Int32.TryParse(sNode.InnerText, out delay);
+                if (!parOk)
+                {
+                    delay = -1;
+                }
+
                 station = schedule.Stations.getStation(stId);
+                /*
+                // fail check
+                if(station == null)
+                {
+                    xLogger.add("station is null:\r\nstId:" + stId+"\r\ntracknum:"+track.ID
+                                    +"\r\ninner: " + sNode.InnerText);
+                }
+                else
+                {
+                    xLogger.add("new station: \r\nstId:" + stId + "\r\nname:" + station.Name + "-" + station.ID
+                                    +"\r\ninner: "+ sNode.InnerText);
+                }   
+                */
                 stop = new Stop(station, delay);
 
                 track.Stops.Add(stop);

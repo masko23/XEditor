@@ -37,6 +37,10 @@ namespace XEditor.XML_Model
 
             using(StreamWriter sw = new StreamWriter(outpath))
             {
+                // write xml declaration
+                xmlout = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+                sw.WriteLine(xmlout);
+
                 // write header tag in the file
                 xmlout = "<Schedule>";
                 sw.WriteLine(xmlout);
@@ -47,15 +51,58 @@ namespace XEditor.XML_Model
                 foreach(Station stat in Stations.StationList)
                 {
                     xmlout = "\t\t<Station id=\"" + stat.ID.ToString() +
-                                "\">" + stat.Name + "<\\Station>";
+                                "\">" + stat.Name + "</Station>";
                     sw.WriteLine(xmlout);
                 }
-                xmlout = "\t<\\Stations>";
+                xmlout = "\t</Stations>";
+                sw.WriteLine(xmlout);
+
+                // write Lines in the file
+                xmlout = "\t<Lines>";
+                sw.WriteLine(xmlout);
+                foreach(Line line in Lines.LineList)
+                {
+                    // write Line start tag
+                    xmlout = "\t\t<Line name=\"" + line.Name + "\">";
+                    sw.WriteLine(xmlout);
+
+                    // write tracks from line
+                    xmlout = "\t\t\t<Tracks>";
+                    sw.WriteLine(xmlout);
+                    foreach(Track track in line.Tracks.TrackList)
+                    {
+                        xmlout = "\t\t\t\t<Track id = \"" + track.ID + "\">";
+                        sw.WriteLine(xmlout);
+
+                        foreach(Stop stop in track.Stops)
+                        {
+                           xmlout = "\t\t\t\t\t<Stop station=\"" + stop.Station.ID + "\">" + stop.Delay + "</Stop>";
+                           sw.WriteLine(xmlout);
+                        }
+
+                        xmlout = "\t\t\t\t</Track>";
+                        sw.WriteLine(xmlout);
+                    }
+                    xmlout = "\t\t\t</Tracks>";
+                    sw.WriteLine(xmlout);
+
+                    // write starts from line
+                    xmlout = "\t\t\t<Starts>";
+                    sw.WriteLine(xmlout);
+
+                    xmlout = "\t\t\t</Starts>";
+                    sw.WriteLine(xmlout);
+
+                    // write Line end tag
+                    xmlout = "\t\t</Line>";
+                    sw.WriteLine(xmlout);
+                }
+                xmlout = "\t</Lines>";
                 sw.WriteLine(xmlout);
 
 
                 // write end header tag
-                xmlout = "<\\Schedule>";
+                xmlout = "</Schedule>";
                 sw.WriteLine(xmlout);
 
                 // close file
