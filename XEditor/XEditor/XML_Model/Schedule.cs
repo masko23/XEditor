@@ -90,6 +90,13 @@ namespace XEditor.XML_Model
                     xmlout = "\t\t\t<Starts>";
                     sw.WriteLine(xmlout);
 
+                    foreach(Start start in line.Starts.StartList)
+                    {// <Start track="0" active="work">05:03</Start>
+                        xmlout = "\t\t\t\t<Start track=\"" + start.Track.ID + "\" active=\"" + start.Active + "\">"
+                                    + start.Time + "</Start>";
+                        sw.WriteLine(xmlout);
+                    }
+
                     xmlout = "\t\t\t</Starts>";
                     sw.WriteLine(xmlout);
 
@@ -103,7 +110,7 @@ namespace XEditor.XML_Model
 
                 // write end header tag
                 xmlout = "</Schedule>";
-                sw.WriteLine(xmlout);
+                sw.Write(xmlout);
 
                 // close file
                 sw.Close();

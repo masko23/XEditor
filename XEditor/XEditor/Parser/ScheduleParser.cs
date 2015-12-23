@@ -187,8 +187,38 @@ namespace XEditor.Parser
         }
 
         private void parseStarts(XmlNode node,Line line)
-        {
-           
+        {// <Start track="0" active="work">05:03</Start>
+            XmlNodeList starts = node.ChildNodes;
+
+            int tracknum;
+            string active;
+            string time;
+            Track track;
+            Start start;
+
+            foreach(XmlNode sNode in starts)
+            {
+                bool pOk = Int32.TryParse(sNode.Attributes["track"].Value, out tracknum);
+                if(!pOk)
+                {
+                    tracknum = -1;
+                }
+
+                active = sNode.Attributes["active"].Value;
+                time = sNode.InnerText;
+
+                track = line.Tracks.getTrack(tracknum);
+                /*
+                if(track == null)
+                {
+                    xLogger.add("track is null:"+tracknum+" - "+time);
+                }      
+                */
+                start = new Start(track, active, time);
+                line.Starts.addStart(start);
+                    
+            }
+
         }
 
         private void parseStations(XmlNode node)
