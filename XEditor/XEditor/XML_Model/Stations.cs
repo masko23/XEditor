@@ -10,7 +10,7 @@ namespace XEditor.XML_Model
     class Stations
     {
         // Attributes
-        public List<Station> StationList { get; }
+        public List<Station> StationList { get; private set; }
         
         // Constructor
         public Stations()

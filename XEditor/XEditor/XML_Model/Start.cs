@@ -9,9 +9,9 @@ namespace XEditor.XML_Model
     class Start
     {
         // Attributes
-        public Track Track { get; }
-        public string Active { get; }
-        public string Time { get; }
+        public Track Track { get; private set; }
+        public string Active { get; private set; }
+        public string Time { get; private set; }
 
         // Constructor
         public Start(Track p_track, string p_active, string p_time)

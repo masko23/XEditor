@@ -9,7 +9,7 @@ namespace XEditor.XML_Model
     class Starts
     {
         // Attributes
-        public List<Start> StartList { get; }
+        public List<Start> StartList { get; private set; }
 
         // Constructor
         public Starts()

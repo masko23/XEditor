@@ -9,7 +9,7 @@ namespace XEditor.XML_Model
     class Lines
     {
         // Attributes
-        public List<Line> LineList { get; }
+        public List<Line> LineList { get; private set; }
 
         // Constructor
         public Lines()

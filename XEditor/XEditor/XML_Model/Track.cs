@@ -9,8 +9,8 @@ namespace XEditor.XML_Model
     class Track
     {
         // Attributes
-        public int ID { get; }
-        public List<Stop> Stops { get; }
+        public int ID { get; private set; }
+        public List<Stop> Stops { get; private set; }
 
         // Constructor
         public Track(int p_id)

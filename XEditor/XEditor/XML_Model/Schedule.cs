@@ -10,9 +10,9 @@ namespace XEditor.XML_Model
     class Schedule
     {
         // Attributes
-        public String Location { get; }
-        public Stations Stations { get; }
-        public Lines Lines { get; }
+        public String Location { get; private set; }
+        public Stations Stations { get; private set; }
+        public Lines Lines { get; private set; }
 
         // Constructor
         public Schedule(String p_Loc)

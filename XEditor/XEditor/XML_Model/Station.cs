@@ -9,8 +9,8 @@ namespace XEditor.XML_Model
     class Station
     {
         // Basic attributes
-        public int ID { get; } 
-        public String Name { get; }
+        public int ID { get; private set; }
+        public String Name { get; private set; }
 
         // Constructor
         public Station(int p_iId, String p_strName)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using XEditor.Parser;
 using XEditor.XML_Model;
+using XEditor.ButtonHandlers;
 
 namespace XEditor
 {
@@ -174,6 +175,13 @@ namespace XEditor
                     
                 }
             }
+        }
+
+        private void butEdit_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = stationsTree.SelectedNode;
+
+            Button_FormEdit editForm = new Button_FormEdit(selectedNode);
         }
     }
 }

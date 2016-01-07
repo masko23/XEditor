@@ -9,7 +9,7 @@ namespace XEditor.XML_Model
     class Tracks
     {
         // Attributes
-        public List<Track> TrackList { get; }
+        public List<Track> TrackList { get; private set; }
 
         // Constructor
         public Tracks()

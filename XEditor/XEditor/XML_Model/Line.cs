@@ -9,9 +9,9 @@ namespace XEditor.XML_Model
     class Line
     {
         // Attributes
-        public String Name { get; }
-        public Tracks Tracks { get; }
-        public Starts Starts { get; }
+        public String Name { get; private set; }
+        public Tracks Tracks { get; private set; }
+        public Starts Starts { get; private set; }
 
         // Constructor
         public Line(string p_name)
