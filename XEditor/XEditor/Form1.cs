@@ -18,6 +18,8 @@ namespace XEditor
         private Schedule schedule;
         private xLogger logger;
 
+        private Panel editPanel; // store the currently showed panel
+
         public Form1()
         {
             InitializeComponent();
@@ -132,6 +134,7 @@ namespace XEditor
                 if((line = e.Node.Tag as Line) != null)
                 {
                     xLogger.add("Selected:" + line.Name);
+                    editLine();
                 }
                 else
                 {
@@ -167,6 +170,7 @@ namespace XEditor
                                     if ((start = e.Node.Tag as Start) != null)
                                     {
                                         xLogger.add("Selected: " + start.Time);
+                                        editstart();
                                     }
                                 }
                             }
@@ -177,11 +181,72 @@ namespace XEditor
             }
         }
 
+        private void editstart()
+        {
+            if (editPanel != null) editPanel.Hide(); // hide previously used panel
+
+            Start start;
+            if ((start = scheduleTree.SelectedNode.Tag as Start) != null)
+            {
+                editPanel = editpanel_start;
+                editPanel.Show();
+                editstartActive.Text = start.Active;
+                editstartTimepick.Value = DateTime.Parse(start.Time);
+            }
+        }
+
+        private void button_saveStart_Click(object sender, EventArgs e)
+        {
+            Start start;
+            if ((start = scheduleTree.SelectedNode.Tag as Start) != null)
+            {
+                start.Active = editstartActive.Text;
+                
+                start.Time = editstartTimepick.Value.ToString("HH:mm");
+
+                scheduleTree.SelectedNode.Text = start.Time;
+
+                editPanel.Hide();
+                editPanel = null;
+            }
+        }
+
+        private void editLine()
+        {
+            if (editPanel != null) editPanel.Hide(); // hide previously used panel
+
+            Line line;
+            if((line = scheduleTree.SelectedNode.Tag as Line) != null)
+            {
+                editPanel = editpanel_line;
+                editPanel.Show();
+                textedit_line.Text = line.Name;
+            }
+            
+        }
+
+        private void button_saveline_Click(object sender, EventArgs e)
+        {
+            Line line;
+            if ((line = scheduleTree.SelectedNode.Tag as Line) != null)
+            {
+                line.Name = textedit_line.Text;
+                scheduleTree.SelectedNode.Text = line.Name;
+
+                editPanel.Hide();
+                editPanel = null;
+            }
+        }
+
+
         private void butEdit_Click(object sender, EventArgs e)
         {
+            
             TreeNode selectedNode = stationsTree.SelectedNode;
 
             Button_FormEdit editForm = new Button_FormEdit(selectedNode);
         }
+
+
     }
 }
