@@ -45,47 +45,50 @@
             this.editstartActive = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.editpanel_track = new System.Windows.Forms.Panel();
+            this.button_saveTrack = new System.Windows.Forms.Button();
+            this.numericUpDown_TID = new System.Windows.Forms.NumericUpDown();
+            this.labelTrackId = new System.Windows.Forms.Label();
+            this.labelTrack = new System.Windows.Forms.Label();
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
+            this.editpanel_track.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_TID)).BeginInit();
             this.SuspendLayout();
             // 
             // stationsTree
             // 
             this.stationsTree.Dock = System.Windows.Forms.DockStyle.Left;
             this.stationsTree.Location = new System.Drawing.Point(0, 0);
-            this.stationsTree.Margin = new System.Windows.Forms.Padding(4);
             this.stationsTree.Name = "stationsTree";
-            this.stationsTree.Size = new System.Drawing.Size(266, 644);
+            this.stationsTree.Size = new System.Drawing.Size(200, 547);
             this.stationsTree.TabIndex = 0;
             this.stationsTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.stationsTree_AfterSelect);
             // 
             // scheduleTree
             // 
             this.scheduleTree.Dock = System.Windows.Forms.DockStyle.Left;
-            this.scheduleTree.Location = new System.Drawing.Point(266, 0);
-            this.scheduleTree.Margin = new System.Windows.Forms.Padding(4);
+            this.scheduleTree.Location = new System.Drawing.Point(200, 0);
             this.scheduleTree.Name = "scheduleTree";
-            this.scheduleTree.Size = new System.Drawing.Size(273, 644);
+            this.scheduleTree.Size = new System.Drawing.Size(289, 547);
             this.scheduleTree.TabIndex = 1;
             this.scheduleTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.scheduleTree_AfterSelect);
             // 
             // butNew
             // 
-            this.butNew.Location = new System.Drawing.Point(4, 4);
-            this.butNew.Margin = new System.Windows.Forms.Padding(4);
+            this.butNew.Location = new System.Drawing.Point(3, 3);
             this.butNew.Name = "butNew";
-            this.butNew.Size = new System.Drawing.Size(100, 28);
+            this.butNew.Size = new System.Drawing.Size(75, 23);
             this.butNew.TabIndex = 2;
             this.butNew.Text = "Add";
             this.butNew.UseVisualStyleBackColor = true;
             // 
             // butRemove
             // 
-            this.butRemove.Location = new System.Drawing.Point(112, 4);
-            this.butRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.butRemove.Location = new System.Drawing.Point(84, 3);
             this.butRemove.Name = "butRemove";
-            this.butRemove.Size = new System.Drawing.Size(100, 28);
+            this.butRemove.Size = new System.Drawing.Size(75, 23);
             this.butRemove.TabIndex = 4;
             this.butRemove.Text = "Remove";
             this.butRemove.UseVisualStyleBackColor = true;
@@ -94,10 +97,9 @@
             // 
             this.panelButtons.Controls.Add(this.butNew);
             this.panelButtons.Controls.Add(this.butRemove);
-            this.panelButtons.Location = new System.Drawing.Point(547, 13);
-            this.panelButtons.Margin = new System.Windows.Forms.Padding(4);
+            this.panelButtons.Location = new System.Drawing.Point(495, 12);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(218, 39);
+            this.panelButtons.Size = new System.Drawing.Size(164, 32);
             this.panelButtons.TabIndex = 5;
             // 
             // editpanel_line
@@ -106,26 +108,29 @@
             this.editpanel_line.Controls.Add(this.button_saveline);
             this.editpanel_line.Controls.Add(this.textedit_line);
             this.editpanel_line.Controls.Add(this.editlabel_line);
-            this.editpanel_line.Location = new System.Drawing.Point(547, 80);
+            this.editpanel_line.Location = new System.Drawing.Point(498, 49);
+            this.editpanel_line.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_line.Name = "editpanel_line";
-            this.editpanel_line.Size = new System.Drawing.Size(200, 96);
+            this.editpanel_line.Size = new System.Drawing.Size(150, 78);
             this.editpanel_line.TabIndex = 6;
             this.editpanel_line.Visible = false;
             // 
             // labellineName
             // 
             this.labellineName.AutoSize = true;
-            this.labellineName.Location = new System.Drawing.Point(7, 36);
+            this.labellineName.Location = new System.Drawing.Point(5, 29);
+            this.labellineName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labellineName.Name = "labellineName";
-            this.labellineName.Size = new System.Drawing.Size(45, 16);
+            this.labellineName.Size = new System.Drawing.Size(35, 13);
             this.labellineName.TabIndex = 3;
             this.labellineName.Text = "Name";
             // 
             // button_saveline
             // 
-            this.button_saveline.Location = new System.Drawing.Point(118, 64);
+            this.button_saveline.Location = new System.Drawing.Point(88, 52);
+            this.button_saveline.Margin = new System.Windows.Forms.Padding(2);
             this.button_saveline.Name = "button_saveline";
-            this.button_saveline.Size = new System.Drawing.Size(75, 23);
+            this.button_saveline.Size = new System.Drawing.Size(56, 19);
             this.button_saveline.TabIndex = 2;
             this.button_saveline.Text = "Save";
             this.button_saveline.UseVisualStyleBackColor = true;
@@ -133,17 +138,19 @@
             // 
             // textedit_line
             // 
-            this.textedit_line.Location = new System.Drawing.Point(58, 36);
+            this.textedit_line.Location = new System.Drawing.Point(44, 29);
+            this.textedit_line.Margin = new System.Windows.Forms.Padding(2);
             this.textedit_line.Name = "textedit_line";
-            this.textedit_line.Size = new System.Drawing.Size(135, 22);
+            this.textedit_line.Size = new System.Drawing.Size(102, 20);
             this.textedit_line.TabIndex = 1;
             // 
             // editlabel_line
             // 
             this.editlabel_line.AutoSize = true;
-            this.editlabel_line.Location = new System.Drawing.Point(81, 6);
+            this.editlabel_line.Location = new System.Drawing.Point(61, 5);
+            this.editlabel_line.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.editlabel_line.Name = "editlabel_line";
-            this.editlabel_line.Size = new System.Drawing.Size(33, 16);
+            this.editlabel_line.Size = new System.Drawing.Size(27, 13);
             this.editlabel_line.TabIndex = 0;
             this.editlabel_line.Text = "Line";
             // 
@@ -155,17 +162,19 @@
             this.editpanel_start.Controls.Add(this.editstartActive);
             this.editpanel_start.Controls.Add(this.label2);
             this.editpanel_start.Controls.Add(this.label1);
-            this.editpanel_start.Location = new System.Drawing.Point(547, 80);
+            this.editpanel_start.Location = new System.Drawing.Point(498, 49);
+            this.editpanel_start.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_start.Name = "editpanel_start";
-            this.editpanel_start.Size = new System.Drawing.Size(194, 155);
+            this.editpanel_start.Size = new System.Drawing.Size(146, 126);
             this.editpanel_start.TabIndex = 7;
             this.editpanel_start.Visible = false;
             // 
             // button_saveStart
             // 
-            this.button_saveStart.Location = new System.Drawing.Point(100, 114);
+            this.button_saveStart.Location = new System.Drawing.Point(75, 93);
+            this.button_saveStart.Margin = new System.Windows.Forms.Padding(2);
             this.button_saveStart.Name = "button_saveStart";
-            this.button_saveStart.Size = new System.Drawing.Size(75, 23);
+            this.button_saveStart.Size = new System.Drawing.Size(56, 19);
             this.button_saveStart.TabIndex = 5;
             this.button_saveStart.Text = "Save";
             this.button_saveStart.UseVisualStyleBackColor = true;
@@ -176,19 +185,21 @@
             this.editstartTimepick.Checked = false;
             this.editstartTimepick.CustomFormat = "HH:mm";
             this.editstartTimepick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.editstartTimepick.Location = new System.Drawing.Point(55, 86);
+            this.editstartTimepick.Location = new System.Drawing.Point(41, 70);
+            this.editstartTimepick.Margin = new System.Windows.Forms.Padding(2);
             this.editstartTimepick.Name = "editstartTimepick";
             this.editstartTimepick.ShowUpDown = true;
-            this.editstartTimepick.Size = new System.Drawing.Size(68, 22);
+            this.editstartTimepick.Size = new System.Drawing.Size(52, 20);
             this.editstartTimepick.TabIndex = 4;
             this.editstartTimepick.Value = new System.DateTime(2016, 1, 7, 0, 0, 0, 0);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 86);
+            this.label3.Location = new System.Drawing.Point(2, 70);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Time";
             // 
@@ -202,40 +213,92 @@
             "sat",
             "sun",
             "school"});
-            this.editstartActive.Location = new System.Drawing.Point(55, 45);
+            this.editstartActive.Location = new System.Drawing.Point(41, 37);
+            this.editstartActive.Margin = new System.Windows.Forms.Padding(2);
             this.editstartActive.Name = "editstartActive";
-            this.editstartActive.Size = new System.Drawing.Size(121, 24);
+            this.editstartActive.Size = new System.Drawing.Size(92, 21);
             this.editstartActive.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 45);
+            this.label2.Location = new System.Drawing.Point(2, 37);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Active";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 12);
+            this.label1.Location = new System.Drawing.Point(66, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 16);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Start";
             // 
+            // editpanel_track
+            // 
+            this.editpanel_track.Controls.Add(this.button_saveTrack);
+            this.editpanel_track.Controls.Add(this.numericUpDown_TID);
+            this.editpanel_track.Controls.Add(this.labelTrackId);
+            this.editpanel_track.Controls.Add(this.labelTrack);
+            this.editpanel_track.Location = new System.Drawing.Point(498, 49);
+            this.editpanel_track.Margin = new System.Windows.Forms.Padding(2);
+            this.editpanel_track.Name = "editpanel_track";
+            this.editpanel_track.Size = new System.Drawing.Size(159, 103);
+            this.editpanel_track.TabIndex = 8;
+            this.editpanel_track.Visible = false;
+            // 
+            // button_saveTrack
+            // 
+            this.button_saveTrack.Location = new System.Drawing.Point(59, 64);
+            this.button_saveTrack.Margin = new System.Windows.Forms.Padding(2);
+            this.button_saveTrack.Name = "button_saveTrack";
+            this.button_saveTrack.Size = new System.Drawing.Size(56, 19);
+            this.button_saveTrack.TabIndex = 6;
+            this.button_saveTrack.Text = "Save";
+            this.button_saveTrack.UseVisualStyleBackColor = true;
+            this.button_saveTrack.Click += new System.EventHandler(this.button_saveTrack_Click);
+            // 
+            // numericUpDown_TID
+            // 
+            this.numericUpDown_TID.Location = new System.Drawing.Point(28, 39);
+            this.numericUpDown_TID.Name = "numericUpDown_TID";
+            this.numericUpDown_TID.Size = new System.Drawing.Size(54, 20);
+            this.numericUpDown_TID.TabIndex = 2;
+            // 
+            // labelTrackId
+            // 
+            this.labelTrackId.AutoSize = true;
+            this.labelTrackId.Location = new System.Drawing.Point(4, 41);
+            this.labelTrackId.Name = "labelTrackId";
+            this.labelTrackId.Size = new System.Drawing.Size(18, 13);
+            this.labelTrackId.TabIndex = 1;
+            this.labelTrackId.Text = "ID";
+            // 
+            // labelTrack
+            // 
+            this.labelTrack.AutoSize = true;
+            this.labelTrack.Location = new System.Drawing.Point(37, 14);
+            this.labelTrack.Name = "labelTrack";
+            this.labelTrack.Size = new System.Drawing.Size(35, 13);
+            this.labelTrack.TabIndex = 0;
+            this.labelTrack.Text = "Track";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 644);
+            this.ClientSize = new System.Drawing.Size(831, 547);
             this.Controls.Add(this.editpanel_start);
             this.Controls.Add(this.editpanel_line);
+            this.Controls.Add(this.editpanel_track);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.scheduleTree);
             this.Controls.Add(this.stationsTree);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -244,6 +307,9 @@
             this.editpanel_line.PerformLayout();
             this.editpanel_start.ResumeLayout(false);
             this.editpanel_start.PerformLayout();
+            this.editpanel_track.ResumeLayout(false);
+            this.editpanel_track.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_TID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,6 +333,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker editstartTimepick;
         private System.Windows.Forms.Button button_saveStart;
+        private System.Windows.Forms.Panel editpanel_track;
+        private System.Windows.Forms.Label labelTrackId;
+        private System.Windows.Forms.Label labelTrack;
+        private System.Windows.Forms.Button button_saveTrack;
+        private System.Windows.Forms.NumericUpDown numericUpDown_TID;
     }
 }
 

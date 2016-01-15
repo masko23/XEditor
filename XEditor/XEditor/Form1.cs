@@ -34,6 +34,9 @@ namespace XEditor
             fillStationsTree();
             fillScheduleTree();
 
+            stationsTree.ExpandAll();
+            scheduleTree.ExpandAll();
+
             schedule.save();
         }
 
@@ -54,8 +57,6 @@ namespace XEditor
                TreeNode tNode = tStations.Nodes.Add(station.Name);
                 tNode.Tag = station;
             }
-
-            stationsTree.ExpandAll();
         }
 
         private void fillScheduleTree()
@@ -149,6 +150,7 @@ namespace XEditor
                         if ((track = e.Node.Tag as Track) != null)
                         {
                             xLogger.add("Selected: " + track.ID);
+                            editTrack();
                         }
                         else
                         {
@@ -181,6 +183,46 @@ namespace XEditor
             }
         }
 
+        private void editTrack()
+        {
+            if (editPanel != null) editPanel.Hide();
+
+            Track track;
+            if((track = scheduleTree.SelectedNode.Tag as Track) != null)
+            {
+                editPanel = editpanel_track;
+                editPanel.Show();
+                numericUpDown_TID.Value = track.ID;
+            }
+        }
+
+        private void button_saveTrack_Click(object sender, EventArgs e)
+        {
+            Track track;
+            if ((track = scheduleTree.SelectedNode.Tag as Track) != null)
+            {
+                Tracks parent = scheduleTree.SelectedNode.Parent.Tag as Tracks;
+
+                foreach (Track t in parent.TrackList)
+                {
+                    if (t.ID == numericUpDown_TID.Value)
+                    {
+                        MessageBox.Show("Track ID is already taken.");
+                        return;
+                    }
+                }
+
+                track.ID = (int)numericUpDown_TID.Value;
+                scheduleTree.SelectedNode.Text = track.ID.ToString();
+
+
+                editPanel.Hide();
+                editPanel = null;
+
+                scheduleTree.SelectedNode = null;
+            }
+        }
+
         private void editstart()
         {
             if (editPanel != null) editPanel.Hide(); // hide previously used panel
@@ -208,6 +250,8 @@ namespace XEditor
 
                 editPanel.Hide();
                 editPanel = null;
+
+                scheduleTree.SelectedNode = null;
             }
         }
 
@@ -230,11 +274,23 @@ namespace XEditor
             Line line;
             if ((line = scheduleTree.SelectedNode.Tag as Line) != null)
             {
+                Lines parent = scheduleTree.SelectedNode.Parent.Tag as Lines;
+                foreach(Line l in parent.LineList)
+                {
+                    if(l.Name == textedit_line.Text)
+                    {
+                        MessageBox.Show("Line name is already taken.");
+                        return;
+                    }
+                }
+
                 line.Name = textedit_line.Text;
                 scheduleTree.SelectedNode.Text = line.Name;
 
                 editPanel.Hide();
                 editPanel = null;
+
+                scheduleTree.SelectedNode = null;
             }
         }
 
