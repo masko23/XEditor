@@ -9,8 +9,8 @@ namespace XEditor.XML_Model
     class Stop
     {
         // Attributes
-        public Station Station { get; private set; }
-        public int Delay { get; private set; }
+        public Station Station { get; set; }
+        public int Delay { get; set; }
 
         // Constructor
         public Stop(Station p_stat, int p_del)

@@ -31,32 +31,32 @@ namespace XEditor
             ScheduleParser parser = new ScheduleParser(schedule);
             parser.read();
 
-            fillStationsTree();
             fillScheduleTree();
 
-            stationsTree.ExpandAll();
             scheduleTree.ExpandAll();
 
-            schedule.save();
+            this.listBox_stopstats.DataSource = schedule.Stations.StationList;
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            logger.Hide();
-        }
+            DialogResult result = MessageBox.Show("Do you want to save the changes?", "Save&Exit", MessageBoxButtons.YesNoCancel);
 
-        private void fillStationsTree()
-        {
-            stationsTree.Nodes.Clear();
-
-            TreeNode tStations = stationsTree.Nodes.Add("Stations");
-            tStations.Tag = schedule.Stations;
-
-            foreach(Station station in schedule.Stations.StationList)
+            switch(result)
             {
-               TreeNode tNode = tStations.Nodes.Add(station.Name);
-                tNode.Tag = station;
+                case DialogResult.Yes:
+                    schedule.save();
+                    logger.Hide();
+                    break;
+                case DialogResult.No:
+                    logger.Hide();
+                    break;
+                default:
+                    e.Cancel = true;
+                    break;
             }
+
         }
 
         private void fillScheduleTree()
@@ -114,6 +114,8 @@ namespace XEditor
                     xLogger.add("Selected: " + station.Name);
                 }
             }
+
+           
         }
 
         private void scheduleTree_AfterSelect(object sender, TreeViewEventArgs e)
@@ -158,6 +160,7 @@ namespace XEditor
                             if ((stop = e.Node.Tag as Stop) != null)
                             {
                                 xLogger.add("Selected: " + stop.Station.Name);
+                                editStop();
                             }
                             else // bring out this part to same level as Tracks
                             {
@@ -180,6 +183,38 @@ namespace XEditor
                     }
                     
                 }
+            }
+        }
+
+        private void editStop()
+        {
+            if (editPanel != null) editPanel.Hide();
+
+            Stop stop;
+            if ((stop = scheduleTree.SelectedNode.Tag as Stop) != null)
+            {
+                editPanel = editpanel_stop;
+                editPanel.Show();
+                listBox_stopstats.SelectedItem = stop.Station;
+                numericUpDown_stopdelay.Value = stop.Delay;
+            }
+        }
+
+        private void editstop_savebutton_Click(object sender, EventArgs e)
+        {
+            Stop stop;
+            if ((stop = scheduleTree.SelectedNode.Tag as Stop) != null)
+            {
+                stop.Station = (Station)listBox_stopstats.SelectedItem;
+
+                stop.Delay = (int)numericUpDown_stopdelay.Value;
+
+                scheduleTree.SelectedNode.Text = stop.Station.Name;
+
+                editPanel.Hide();
+                editPanel = null;
+
+                scheduleTree.SelectedNode = null;
             }
         }
 
@@ -294,14 +329,6 @@ namespace XEditor
             }
         }
 
-
-        private void butEdit_Click(object sender, EventArgs e)
-        {
-            
-            TreeNode selectedNode = stationsTree.SelectedNode;
-
-            Button_FormEdit editForm = new Button_FormEdit(selectedNode);
-        }
 
 
     }

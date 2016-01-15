@@ -10,7 +10,7 @@ namespace XEditor.XML_Model
     {
         // Basic attributes
         public int ID { get; private set; }
-        public String Name { get; private set; }
+        public String Name { get; set; }
 
         // Constructor
         public Station(int p_iId, String p_strName)
@@ -24,7 +24,7 @@ namespace XEditor.XML_Model
 
         override public string ToString()
         {
-            string ret = ID.ToString() + " / " + Name;
+            string ret = Name;
 
             return ret;
         }
