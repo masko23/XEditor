@@ -441,7 +441,7 @@ namespace XEditor
             else
             {
                 Line line;
-                if((line = scheduleTree.SelectedNode.Tag as Line) != null)
+                if ((line = scheduleTree.SelectedNode.Tag as Line) != null)
                 {
                     Lines parent = scheduleTree.SelectedNode.Parent.Tag as Lines;
 
@@ -451,7 +451,7 @@ namespace XEditor
                 else
                 {
                     Track track;
-                    if((track = scheduleTree.SelectedNode.Tag as Track) != null)
+                    if ((track = scheduleTree.SelectedNode.Tag as Track) != null)
                     {
                         Tracks parent = scheduleTree.SelectedNode.Parent.Tag as Tracks;
 
@@ -460,6 +460,17 @@ namespace XEditor
 
                         fillScheduleTree();
                         scheduleTree.ExpandAll();
+                    }
+                    else
+                    {
+                        Stop stop;
+                        if((stop = scheduleTree.SelectedNode.Tag as Stop) != null)
+                        {
+                            Track parent = scheduleTree.SelectedNode.Parent.Tag as Track;
+
+                            parent.Stops.Remove(stop);
+                            scheduleTree.SelectedNode.Remove();
+                        }
                     }
                 }
             }
