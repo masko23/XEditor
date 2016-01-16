@@ -63,6 +63,16 @@ namespace XEditor
         {
             scheduleTree.Nodes.Clear();
 
+            // stations
+            TreeNode tStations = scheduleTree.Nodes.Add("Stations");
+            tStations.Tag = schedule.Stations;
+            foreach(Station station in schedule.Stations.StationList)
+            {
+                TreeNode tStation = tStations.Nodes.Add(station.Name);
+                tStation.Tag = station;
+            }
+
+            // lines
             TreeNode tLines = scheduleTree.Nodes.Add("Lines");
             tLines.Tag = schedule.Lines;
 
@@ -101,19 +111,7 @@ namespace XEditor
 
         private void stationsTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Stations stations;
-            if ((stations = e.Node.Tag as Stations) != null)
-            { 
-                xLogger.add("Selected: " + "Stations");
-            }
-            else
-            {
-                Station station;
-                if ((station = e.Node.Tag as Station) != null)
-                {
-                    xLogger.add("Selected: " + station.Name);
-                }
-            }
+
 
            
         }
@@ -125,6 +123,23 @@ namespace XEditor
                 pro: same branches as treeview  
                 con: potential unnecessary if checks
             */
+
+            if (editPanel != null) editPanel.Hide(); // hide previously used panel
+
+            Stations stations;
+            if ((stations = e.Node.Tag as Stations) != null)
+            { 
+                xLogger.add("Selected: " + "Stations");
+            }
+            else
+            {
+                Station station;
+                if ((station = e.Node.Tag as Station) != null)
+                {
+                    xLogger.add("Selected: " + station.Name);
+                    editStation();
+                }
+            }
 
             Lines lines;
             if((lines = e.Node.Tag as Lines) != null)
@@ -329,7 +344,43 @@ namespace XEditor
             }
         }
 
+        private void editStation()
+        {
+            if (editPanel != null) editPanel.Hide();
 
+            Station station;
+            if((station = scheduleTree.SelectedNode.Tag as Station)!=null)
+            {
+                editPanel = editpanel_Station;
+                editPanel.Show();
 
+                textBox_station.Text = station.Name;
+            }
+        }
+
+        private void button_saveStation_Click(object sender, EventArgs e)
+        {
+            Station station;
+            if ((station = scheduleTree.SelectedNode.Tag as Station) != null)
+            {
+                Stations parent = scheduleTree.SelectedNode.Parent.Tag as Stations;
+                foreach(Station stat in parent.StationList)
+                {
+                    if(stat.Name == textBox_station.Text && stat != station)
+                    {
+                        MessageBox.Show("Station is already exists.");
+                        return;
+                    }
+                }
+
+                station.Name = textBox_station.Text;
+                scheduleTree.SelectedNode.Text = station.Name;
+
+                editPanel.Hide();
+                editPanel = null;
+
+                scheduleTree.SelectedNode = null;
+            }
+        }
     }
 }

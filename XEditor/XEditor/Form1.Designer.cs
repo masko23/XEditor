@@ -50,12 +50,17 @@
             this.labelTrackId = new System.Windows.Forms.Label();
             this.labelTrack = new System.Windows.Forms.Label();
             this.editpanel_stop = new System.Windows.Forms.Panel();
+            this.listBox_stopstats = new System.Windows.Forms.ListBox();
             this.numericUpDown_stopdelay = new System.Windows.Forms.NumericUpDown();
             this.editstop_savebutton = new System.Windows.Forms.Button();
             this.label_delay = new System.Windows.Forms.Label();
             this.label_station = new System.Windows.Forms.Label();
             this.label_stop = new System.Windows.Forms.Label();
-            this.listBox_stopstats = new System.Windows.Forms.ListBox();
+            this.editpanel_Station = new System.Windows.Forms.Panel();
+            this.button_saveStation = new System.Windows.Forms.Button();
+            this.textBox_station = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label_editStation = new System.Windows.Forms.Label();
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
@@ -63,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_TID)).BeginInit();
             this.editpanel_stop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_stopdelay)).BeginInit();
+            this.editpanel_Station.SuspendLayout();
             this.SuspendLayout();
             // 
             // scheduleTree
@@ -70,7 +76,7 @@
             this.scheduleTree.Dock = System.Windows.Forms.DockStyle.Left;
             this.scheduleTree.Location = new System.Drawing.Point(0, 0);
             this.scheduleTree.Name = "scheduleTree";
-            this.scheduleTree.Size = new System.Drawing.Size(346, 547);
+            this.scheduleTree.Size = new System.Drawing.Size(346, 731);
             this.scheduleTree.TabIndex = 1;
             this.scheduleTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.scheduleTree_AfterSelect);
             // 
@@ -302,6 +308,16 @@
             this.editpanel_stop.TabIndex = 8;
             this.editpanel_stop.Visible = false;
             // 
+            // listBox_stopstats
+            // 
+            this.listBox_stopstats.FormattingEnabled = true;
+            this.listBox_stopstats.HorizontalScrollbar = true;
+            this.listBox_stopstats.Location = new System.Drawing.Point(68, 45);
+            this.listBox_stopstats.Name = "listBox_stopstats";
+            this.listBox_stopstats.Size = new System.Drawing.Size(220, 368);
+            this.listBox_stopstats.Sorted = true;
+            this.listBox_stopstats.TabIndex = 9;
+            // 
             // numericUpDown_stopdelay
             // 
             this.numericUpDown_stopdelay.Location = new System.Drawing.Point(67, 430);
@@ -350,25 +366,65 @@
             this.label_stop.TabIndex = 0;
             this.label_stop.Text = "Stop";
             // 
-            // listBox_stopstats
+            // editpanel_Station
             // 
-            this.listBox_stopstats.FormattingEnabled = true;
-            this.listBox_stopstats.HorizontalScrollbar = true;
-            this.listBox_stopstats.Location = new System.Drawing.Point(68, 45);
-            this.listBox_stopstats.Name = "listBox_stopstats";
-            this.listBox_stopstats.Size = new System.Drawing.Size(220, 368);
-            this.listBox_stopstats.Sorted = true;
-            this.listBox_stopstats.TabIndex = 9;
+            this.editpanel_Station.Controls.Add(this.button_saveStation);
+            this.editpanel_Station.Controls.Add(this.textBox_station);
+            this.editpanel_Station.Controls.Add(this.label4);
+            this.editpanel_Station.Controls.Add(this.label_editStation);
+            this.editpanel_Station.Location = new System.Drawing.Point(351, 49);
+            this.editpanel_Station.Margin = new System.Windows.Forms.Padding(2);
+            this.editpanel_Station.Name = "editpanel_Station";
+            this.editpanel_Station.Padding = new System.Windows.Forms.Padding(2);
+            this.editpanel_Station.Size = new System.Drawing.Size(275, 150);
+            this.editpanel_Station.TabIndex = 1;
+            this.editpanel_Station.Visible = false;
+            // 
+            // button_saveStation
+            // 
+            this.button_saveStation.Location = new System.Drawing.Point(175, 89);
+            this.button_saveStation.Name = "button_saveStation";
+            this.button_saveStation.Size = new System.Drawing.Size(75, 23);
+            this.button_saveStation.TabIndex = 3;
+            this.button_saveStation.Text = "Save";
+            this.button_saveStation.UseVisualStyleBackColor = true;
+            this.button_saveStation.Click += new System.EventHandler(this.button_saveStation_Click);
+            // 
+            // textBox_station
+            // 
+            this.textBox_station.Location = new System.Drawing.Point(51, 46);
+            this.textBox_station.Name = "textBox_station";
+            this.textBox_station.Size = new System.Drawing.Size(199, 20);
+            this.textBox_station.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Name";
+            // 
+            // label_editStation
+            // 
+            this.label_editStation.AutoSize = true;
+            this.label_editStation.Location = new System.Drawing.Point(121, 12);
+            this.label_editStation.Name = "label_editStation";
+            this.label_editStation.Size = new System.Drawing.Size(40, 13);
+            this.label_editStation.TabIndex = 0;
+            this.label_editStation.Text = "Station";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 547);
+            this.ClientSize = new System.Drawing.Size(1064, 731);
             this.Controls.Add(this.editpanel_stop);
             this.Controls.Add(this.editpanel_start);
             this.Controls.Add(this.editpanel_line);
             this.Controls.Add(this.editpanel_track);
+            this.Controls.Add(this.editpanel_Station);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.scheduleTree);
             this.Name = "Form1";
@@ -385,6 +441,8 @@
             this.editpanel_stop.ResumeLayout(false);
             this.editpanel_stop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_stopdelay)).EndInit();
+            this.editpanel_Station.ResumeLayout(false);
+            this.editpanel_Station.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -418,6 +476,11 @@
         private System.Windows.Forms.Label label_stop;
         private System.Windows.Forms.NumericUpDown numericUpDown_stopdelay;
         private System.Windows.Forms.ListBox listBox_stopstats;
+        private System.Windows.Forms.Panel editpanel_Station;
+        private System.Windows.Forms.Button button_saveStation;
+        private System.Windows.Forms.TextBox textBox_station;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_editStation;
     }
 }
 
