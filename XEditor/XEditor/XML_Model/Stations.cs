@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,12 @@ namespace XEditor.XML_Model
     class Stations
     {
         // Attributes
-        public List<Station> StationList { get; private set; }
+        public BindingList<Station> StationList { get; private set; }
         
         // Constructor
         public Stations()
         {
-            StationList = new List<Station>();
+            StationList = new BindingList<Station>();
         }
 
         // Functionality
@@ -61,7 +62,11 @@ namespace XEditor.XML_Model
         // Remove a Station from the list by reference
         public void removeStation(Station p_station)
         {
-            StationList.Remove(p_station);
+            string stname = p_station.Name;
+            if(StationList.Remove(p_station))
+            {
+                xLogger.add("Station is removed: " + stname);
+            }
         }
 
         // Remove a Station from the list by ID

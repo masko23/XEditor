@@ -382,5 +382,49 @@ namespace XEditor
                 scheduleTree.SelectedNode = null;
             }
         }
+
+        private void removeZombieStations(Station toRemove)
+        {
+            List<Stop> removeList = new List<Stop>();
+
+            Lines lines = schedule.Lines;
+            foreach(Line line in lines.LineList)
+            { 
+                foreach(Track track in line.Tracks.TrackList)
+                { 
+                    foreach(Stop stop in track.Stops)
+                    {
+                        if (stop.Station == toRemove)
+                        {
+                            removeList.Add(stop); 
+                        }                       
+                    }
+
+                    foreach(Stop stop in removeList)
+                    {
+                        xLogger.add("Stop is removed: " + stop.Station.Name + " from " + line.Name + "/" + track.ID);
+                        track.Stops.Remove(stop);
+                    }
+
+                    removeList.Clear();
+                   
+                }
+            }
+        }
+
+        private void butRemove_Click(object sender, EventArgs e)
+        {
+            Station station;
+            if ((station = scheduleTree.SelectedNode.Tag as Station) != null)
+            {
+                removeZombieStations(station);
+                schedule.Stations.removeStation(station);
+
+
+                fillScheduleTree();
+                scheduleTree.ExpandAll();
+            }
+
+        }
     }
 }

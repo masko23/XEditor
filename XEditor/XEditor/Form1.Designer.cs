@@ -97,6 +97,7 @@
             this.butRemove.TabIndex = 4;
             this.butRemove.Text = "Remove";
             this.butRemove.UseVisualStyleBackColor = true;
+            this.butRemove.Click += new System.EventHandler(this.butRemove_Click);
             // 
             // panelButtons
             // 
