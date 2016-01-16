@@ -9,7 +9,7 @@ namespace XEditor.XML_Model
     class Start
     {
         // Attributes
-        public Track Track { get; private set; }
+        public Track Track { get; set; }
         public string Active { get; set; }
         public string Time { get; set; }
 

@@ -280,10 +280,22 @@ namespace XEditor
             Start start;
             if ((start = scheduleTree.SelectedNode.Tag as Start) != null)
             {
+                Tracks parent = scheduleTree.SelectedNode.Parent.Parent.Nodes[0].Tag as Tracks;
+
                 editPanel = editpanel_start;
                 editPanel.Show();
                 editstartActive.Text = start.Active;
                 editstartTimepick.Value = DateTime.Parse(start.Time);
+                listBox_startTID.DataSource = parent.TrackList;
+
+                for(int i = 0; i <  parent.TrackList.Count; i++)
+                {
+                    if(parent.TrackList[i].ID == start.Track.ID)
+                    {
+                        listBox_startTID.SelectedIndex = i;
+                    }
+                }
+                
             }
         }
 
@@ -292,8 +304,10 @@ namespace XEditor
             Start start;
             if ((start = scheduleTree.SelectedNode.Tag as Start) != null)
             {
+                Tracks parent = scheduleTree.SelectedNode.Parent.Parent.Nodes[0].Tag as Tracks;
+
+                start.Track = (Track)listBox_startTID.SelectedItem;
                 start.Active = editstartActive.Text;
-                
                 start.Time = editstartTimepick.Value.ToString("HH:mm");
 
                 scheduleTree.SelectedNode.Text = start.Time;
@@ -424,7 +438,57 @@ namespace XEditor
                 fillScheduleTree();
                 scheduleTree.ExpandAll();
             }
+            else
+            {
+                Line line;
+                if((line = scheduleTree.SelectedNode.Tag as Line) != null)
+                {
+                    Lines parent = scheduleTree.SelectedNode.Parent.Tag as Lines;
 
+                    parent.removeLine(line);
+                    scheduleTree.SelectedNode.Remove();
+                }
+                else
+                {
+                    Track track;
+                    if((track = scheduleTree.SelectedNode.Tag as Track) != null)
+                    {
+                        Tracks parent = scheduleTree.SelectedNode.Parent.Tag as Tracks;
+
+                        removeZombieStarts(track);
+                        parent.removeTrack(track);
+
+                        fillScheduleTree();
+                        scheduleTree.ExpandAll();
+                    }
+                }
+            }
+            
+
+        }
+
+        private void removeZombieStarts(Track toRemove)
+        {
+            List<Start> removelist = new List<Start>();
+
+            Lines lines = schedule.Lines;
+            foreach(Line line in lines.LineList)
+            {
+                Starts starts = line.Starts;
+                foreach(Start start in starts.StartList)
+                {
+                    if(start.Track == toRemove)
+                    {
+                        removelist.Add(start);
+                    }
+                }
+
+                foreach(Start start in removelist)
+                {
+                    starts.removeStart(start);
+                }
+                removelist.Clear();
+            }
         }
     }
 }

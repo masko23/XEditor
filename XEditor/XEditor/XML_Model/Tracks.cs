@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,12 @@ namespace XEditor.XML_Model
     class Tracks
     {
         // Attributes
-        public List<Track> TrackList { get; private set; }
+        public BindingList<Track> TrackList { get; private set; }
 
         // Constructor
         public Tracks()
         {
-            TrackList = new List<Track>();
+            TrackList = new BindingList<Track>();
         }
 
         // Functionality

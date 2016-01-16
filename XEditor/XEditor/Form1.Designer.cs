@@ -38,6 +38,7 @@
             this.textedit_line = new System.Windows.Forms.TextBox();
             this.editlabel_line = new System.Windows.Forms.Label();
             this.editpanel_start = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.button_saveStart = new System.Windows.Forms.Button();
             this.editstartTimepick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@
             this.textBox_station = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label_editStation = new System.Windows.Forms.Label();
+            this.listBox_startTID = new System.Windows.Forms.ListBox();
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
@@ -162,22 +164,33 @@
             // 
             // editpanel_start
             // 
+            this.editpanel_start.Controls.Add(this.listBox_startTID);
+            this.editpanel_start.Controls.Add(this.label5);
             this.editpanel_start.Controls.Add(this.button_saveStart);
             this.editpanel_start.Controls.Add(this.editstartTimepick);
             this.editpanel_start.Controls.Add(this.label3);
             this.editpanel_start.Controls.Add(this.editstartActive);
             this.editpanel_start.Controls.Add(this.label2);
             this.editpanel_start.Controls.Add(this.label1);
-            this.editpanel_start.Location = new System.Drawing.Point(355, 49);
+            this.editpanel_start.Location = new System.Drawing.Point(355, 59);
             this.editpanel_start.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_start.Name = "editpanel_start";
-            this.editpanel_start.Size = new System.Drawing.Size(146, 126);
+            this.editpanel_start.Size = new System.Drawing.Size(151, 255);
             this.editpanel_start.TabIndex = 7;
             this.editpanel_start.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Track";
+            // 
             // button_saveStart
             // 
-            this.button_saveStart.Location = new System.Drawing.Point(75, 93);
+            this.button_saveStart.Location = new System.Drawing.Point(77, 224);
             this.button_saveStart.Margin = new System.Windows.Forms.Padding(2);
             this.button_saveStart.Name = "button_saveStart";
             this.button_saveStart.Size = new System.Drawing.Size(56, 19);
@@ -416,6 +429,14 @@
             this.label_editStation.TabIndex = 0;
             this.label_editStation.Text = "Station";
             // 
+            // listBox_startTID
+            // 
+            this.listBox_startTID.FormattingEnabled = true;
+            this.listBox_startTID.Location = new System.Drawing.Point(41, 110);
+            this.listBox_startTID.Name = "listBox_startTID";
+            this.listBox_startTID.Size = new System.Drawing.Size(52, 95);
+            this.listBox_startTID.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,6 +503,8 @@
         private System.Windows.Forms.TextBox textBox_station;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_editStation;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox listBox_startTID;
     }
 }
 

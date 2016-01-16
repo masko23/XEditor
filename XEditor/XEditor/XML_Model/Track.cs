@@ -19,6 +19,11 @@ namespace XEditor.XML_Model
             Stops = new List<Stop>();
         }
 
+        public override string ToString()
+        {
+            return ID.ToString();
+        }
+
         // Functionality
         /* not needed yet */
     }
