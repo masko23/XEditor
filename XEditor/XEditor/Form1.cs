@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using XEditor.Parser;
 using XEditor.XML_Model;
 using XEditor.ButtonHandlers;
+using System.IO;
 
 namespace XEditor
 {
@@ -28,7 +29,11 @@ namespace XEditor
 
             schedule = new Schedule("Veszprem");
 
-            ScheduleParser parser = new ScheduleParser(schedule);
+            string path = Path.Combine(Directory.GetCurrentDirectory(),
+                  "VeSchedule.xml"
+                  );
+
+            ScheduleParser parser = new ScheduleParser(schedule,path);
             parser.read();
 
             fillScheduleTree();

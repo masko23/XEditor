@@ -18,13 +18,11 @@ namespace XEditor.Parser
         private string path;
         private Schedule schedule;
 
-        public ScheduleParser(Schedule pschedule)
+        public ScheduleParser(Schedule pschedule,string _path)
         {
             schedule = pschedule;
 
-            path = Path.Combine(Directory.GetCurrentDirectory(),
-                   "VeSchedule.xml"
-                   );
+            path = _path;
 
             try
             { 
@@ -33,23 +31,30 @@ namespace XEditor.Parser
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                path = null;
             }
 
         }
 
 
-        public void read()
+        public bool read()
         {
+            if (path == null) return false;
+
             try
             {
                 reader.Read();
                 parse();
                 reader.Close();
+
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            return false;
 
         }
 
