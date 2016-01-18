@@ -38,6 +38,7 @@
             this.textedit_line = new System.Windows.Forms.TextBox();
             this.editlabel_line = new System.Windows.Forms.Label();
             this.editpanel_start = new System.Windows.Forms.Panel();
+            this.listBox_startTID = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button_saveStart = new System.Windows.Forms.Button();
             this.editstartTimepick = new System.Windows.Forms.DateTimePicker();
@@ -62,7 +63,6 @@
             this.textBox_station = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label_editStation = new System.Windows.Forms.Label();
-            this.listBox_startTID = new System.Windows.Forms.ListBox();
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
@@ -90,6 +90,7 @@
             this.butNew.TabIndex = 2;
             this.butNew.Text = "Add";
             this.butNew.UseVisualStyleBackColor = true;
+            this.butNew.Click += new System.EventHandler(this.butNew_Click);
             // 
             // butRemove
             // 
@@ -178,6 +179,14 @@
             this.editpanel_start.Size = new System.Drawing.Size(151, 255);
             this.editpanel_start.TabIndex = 7;
             this.editpanel_start.Visible = false;
+            // 
+            // listBox_startTID
+            // 
+            this.listBox_startTID.FormattingEnabled = true;
+            this.listBox_startTID.Location = new System.Drawing.Point(41, 110);
+            this.listBox_startTID.Name = "listBox_startTID";
+            this.listBox_startTID.Size = new System.Drawing.Size(52, 95);
+            this.listBox_startTID.TabIndex = 7;
             // 
             // label5
             // 
@@ -428,14 +437,6 @@
             this.label_editStation.Size = new System.Drawing.Size(40, 13);
             this.label_editStation.TabIndex = 0;
             this.label_editStation.Text = "Station";
-            // 
-            // listBox_startTID
-            // 
-            this.listBox_startTID.FormattingEnabled = true;
-            this.listBox_startTID.Location = new System.Drawing.Point(41, 110);
-            this.listBox_startTID.Name = "listBox_startTID";
-            this.listBox_startTID.Size = new System.Drawing.Size(52, 95);
-            this.listBox_startTID.TabIndex = 7;
             // 
             // Form1
             // 

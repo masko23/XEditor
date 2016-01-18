@@ -47,24 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ButtonHandlers\Button_FormEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ButtonHandlers\Button_FormEdit.Designer.cs">
-      <DependentUpon>Button_FormEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ButtonHandlers\Button_FormNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ButtonHandlers\Button_FormNew.Designer.cs">
-      <DependentUpon>Button_FormNew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ButtonHandlers\Button_FormRemove.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ButtonHandlers\Button_FormRemove.Designer.cs">
-      <DependentUpon>Button_FormRemove.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

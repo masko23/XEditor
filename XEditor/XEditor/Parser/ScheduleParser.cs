@@ -25,13 +25,21 @@ namespace XEditor.Parser
             path = _path;
 
             try
-            { 
-                reader = new XmlTextReader(path);
+            {
+                if (File.Exists(path))
+                {
+                    reader = new XmlTextReader(path);
+                }
+                else
+                {
+                    MessageBox.Show("File not found. Creating empty database...");
+                    path = null;
+                }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                path = null;
+
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -51,7 +59,7 @@ namespace XEditor.Parser
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
 
             return false;

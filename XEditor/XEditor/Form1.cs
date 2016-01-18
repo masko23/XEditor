@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using XEditor.Parser;
 using XEditor.XML_Model;
-using XEditor.ButtonHandlers;
 using System.IO;
 
 namespace XEditor
@@ -18,6 +11,7 @@ namespace XEditor
     {
         private Schedule schedule;
         private xLogger logger;
+        private string path;
 
         private Panel editPanel; // store the currently showed panel
 
@@ -29,8 +23,8 @@ namespace XEditor
 
             schedule = new Schedule("Veszprem");
 
-            string path = Path.Combine(Directory.GetCurrentDirectory(),
-                  "VeSchedule.xml"
+            path = Path.Combine(Directory.GetCurrentDirectory(),
+                  "VeSchedule_begin.xml"
                   );
 
             ScheduleParser parser = new ScheduleParser(schedule,path);
@@ -51,7 +45,7 @@ namespace XEditor
             switch(result)
             {
                 case DialogResult.Yes:
-                    schedule.save();
+                    schedule.save(path);
                     logger.Hide();
                     break;
                 case DialogResult.No:
@@ -442,6 +436,10 @@ namespace XEditor
 
                 fillScheduleTree();
                 scheduleTree.ExpandAll();
+
+                editPanel.Hide();
+                editPanel = null;
+                scheduleTree.SelectedNode = null;
             }
             else
             {
@@ -452,6 +450,10 @@ namespace XEditor
 
                     parent.removeLine(line);
                     scheduleTree.SelectedNode.Remove();
+
+                    editPanel.Hide();
+                    editPanel = null;
+                    scheduleTree.SelectedNode = null;
                 }
                 else
                 {
@@ -465,6 +467,10 @@ namespace XEditor
 
                         fillScheduleTree();
                         scheduleTree.ExpandAll();
+
+                        editPanel.Hide();
+                        editPanel = null;
+                        scheduleTree.SelectedNode = null;
                     }
                     else
                     {
@@ -475,6 +481,10 @@ namespace XEditor
 
                             parent.Stops.Remove(stop);
                             scheduleTree.SelectedNode.Remove();
+
+                            editPanel.Hide();
+                            editPanel = null;
+                            scheduleTree.SelectedNode = null;
                         }
                     }
                 }
@@ -504,6 +514,31 @@ namespace XEditor
                     starts.removeStart(start);
                 }
                 removelist.Clear();
+            }
+        }
+
+        private void butNew_Click(object sender, EventArgs e)
+        {
+            if (scheduleTree.SelectedNode == null)
+            {
+                MessageBox.Show("Select a valid note!");
+                return;
+            }
+
+            Stations stations;
+            if ((stations = scheduleTree.SelectedNode.Tag as Stations) != null)
+            {
+                int id = schedule.Stations.getNewID();
+                Station newStation = new Station(id,"New station " + id);
+                TreeNode stNode = new TreeNode(newStation.Name);
+                stNode.Tag = newStation;
+
+                schedule.Stations.addStation(newStation);
+                scheduleTree.SelectedNode.Nodes.Add(stNode);
+
+                scheduleTree.SelectedNode = stNode;
+
+                editStation();
             }
         }
     }

@@ -28,12 +28,10 @@ namespace XEditor.XML_Model
            Stations and Lines are accessible as properties.
            Therefor add/get/remove functions are unnecessary */
 
-        public void save()
+        public void save(string path)
         {
             string xmlout;
-            string outpath = Path.Combine(Directory.GetCurrentDirectory(),
-                   "VeSchedule_new.xml"
-                   );
+            string outpath = path;
 
             using(StreamWriter sw = new StreamWriter(outpath))
             {

@@ -81,6 +81,15 @@ namespace XEditor.XML_Model
             StationList.Remove(getStation(p_name));
         }
 
+        public int getNewID()
+        {
+            int newId = 0;
+            if(StationList.Count > 0)
+            {
+                newId = StationList[StationList.Count - 1].ID + 1;
+            }
 
+            return newId;
+        }
     }
 }
