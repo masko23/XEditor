@@ -108,13 +108,6 @@ namespace XEditor
             }
         }
 
-        private void stationsTree_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-
-           
-        }
-
         private void scheduleTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
             /*
@@ -340,7 +333,7 @@ namespace XEditor
                 Lines parent = scheduleTree.SelectedNode.Parent.Tag as Lines;
                 foreach(Line l in parent.LineList)
                 {
-                    if(l.Name == textedit_line.Text)
+                    if(l.Name == textedit_line.Text && l != line)
                     {
                         MessageBox.Show("Line name is already taken.");
                         return;
@@ -537,6 +530,7 @@ namespace XEditor
                 scheduleTree.SelectedNode.Nodes.Add(stNode);
 
                 scheduleTree.SelectedNode = stNode;
+                scheduleTree.Focus();
 
                 editStation();
             }
@@ -554,6 +548,16 @@ namespace XEditor
                     scheduleTree.SelectedNode.Nodes.Add(lNode);
 
                     scheduleTree.SelectedNode = lNode;
+                    scheduleTree.Focus();
+
+                    TreeNode childNode = new TreeNode("Tracks");
+                    childNode.Tag = newline.Tracks;
+                    lNode.Nodes.Add(childNode);
+
+                    childNode = new TreeNode("Starts");
+                    childNode.Tag = newline.Starts;
+                    lNode.Nodes.Add(childNode);
+                    lNode.ExpandAll();
 
                     editLine();
                 }
