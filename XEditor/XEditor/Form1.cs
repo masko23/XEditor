@@ -540,6 +540,24 @@ namespace XEditor
 
                 editStation();
             }
+            else
+            {
+                Lines lines;
+                if((lines = scheduleTree.SelectedNode.Tag as Lines)!=null)
+                {
+                    string name = "New Line";
+                    Line newline = new Line(name);
+                    schedule.Lines.addLine(newline);
+
+                    TreeNode lNode = new TreeNode(newline.Name);
+                    lNode.Tag = newline;
+                    scheduleTree.SelectedNode.Nodes.Add(lNode);
+
+                    scheduleTree.SelectedNode = lNode;
+
+                    editLine();
+                }
+            }
         }
     }
 }
