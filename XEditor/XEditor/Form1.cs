@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using XEditor.Parser;
 using XEditor.XML_Model;
 using System.IO;
+using nemmegyé;
 
 namespace XEditor
 {
