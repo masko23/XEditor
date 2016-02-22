@@ -19,7 +19,9 @@ namespace XEditor
         {
             InitializeComponent();
             logger = new xLogger();
-            logger.Show();
+            
+            xLogger.LOGGING_ACTIVE = false;
+            if (xLogger.LOGGING_ACTIVE) logger.Show();
 
             schedule = new Schedule("Veszprem");
 
@@ -662,6 +664,12 @@ namespace XEditor
         {
             numericUpDown_stopdelay.Focus();
             numericUpDown_stopdelay.Select(0, numericUpDown_stopdelay.Value.ToString().Length);
+        }
+
+        private void button_savesched_Click(object sender, EventArgs e)
+        {
+            schedule.save(path);
+            MessageBox.Show("Schedule is saved to: " + path);
         }
     }
 }

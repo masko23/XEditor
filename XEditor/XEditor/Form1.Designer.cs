@@ -63,6 +63,7 @@
             this.textBox_station = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label_editStation = new System.Windows.Forms.Label();
+            this.button_savesched = new System.Windows.Forms.Button();
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
@@ -441,11 +442,22 @@
             this.label_editStation.TabIndex = 0;
             this.label_editStation.Text = "Station";
             // 
+            // button_savesched
+            // 
+            this.button_savesched.Location = new System.Drawing.Point(932, 659);
+            this.button_savesched.Name = "button_savesched";
+            this.button_savesched.Size = new System.Drawing.Size(120, 60);
+            this.button_savesched.TabIndex = 9;
+            this.button_savesched.Text = "Save schedule";
+            this.button_savesched.UseVisualStyleBackColor = true;
+            this.button_savesched.Click += new System.EventHandler(this.button_savesched_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 731);
+            this.Controls.Add(this.button_savesched);
             this.Controls.Add(this.editpanel_stop);
             this.Controls.Add(this.editpanel_start);
             this.Controls.Add(this.editpanel_line);
@@ -509,6 +521,7 @@
         private System.Windows.Forms.Label label_editStation;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listBox_startTID;
+        private System.Windows.Forms.Button button_savesched;
     }
 }
 

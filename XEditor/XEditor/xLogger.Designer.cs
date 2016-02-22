@@ -28,35 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            xLogger.logBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // logBox
-            // 
-            xLogger.logBox.Location = new System.Drawing.Point(13, 13);
-            xLogger.logBox.Multiline = true;
-            xLogger.logBox.Name = "logBox";
-            xLogger.logBox.Size = new System.Drawing.Size(523, 453);
-            xLogger.logBox.TabIndex = 0;
-            xLogger.logBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            xLogger.logBox.ReadOnly = true;
-            xLogger.logBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             // 
             // xLogger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 478);
-            this.Controls.Add(xLogger.logBox);
             this.Name = "xLogger";
             this.Text = "xLogger";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.xLogger_FormClosing);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private static System.Windows.Forms.TextBox logBox;
+        private static System.Windows.Forms.TextBox logBox = new System.Windows.Forms.TextBox();
     }
 }
