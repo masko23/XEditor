@@ -247,7 +247,7 @@ namespace XEditor
 
                 foreach (Track t in parent.TrackList)
                 {
-                    if (t.ID == numericUpDown_TID.Value)
+                    if (t.ID == numericUpDown_TID.Value && t != track)
                     {
                         MessageBox.Show("Track ID is already taken.");
                         return;
@@ -256,7 +256,6 @@ namespace XEditor
 
                 track.ID = (int)numericUpDown_TID.Value;
                 scheduleTree.SelectedNode.Text = track.ID.ToString();
-
 
                 editPanel.Hide();
                 editPanel = null;
@@ -278,6 +277,7 @@ namespace XEditor
                 editPanel.Show();
                 editstartActive.Text = start.Active;
                 editstartTimepick.Value = DateTime.Parse(start.Time);
+                listBox_startTID.DataSource = null;
                 listBox_startTID.DataSource = parent.TrackList;
 
                 if (parent.TrackList.Count > 0)

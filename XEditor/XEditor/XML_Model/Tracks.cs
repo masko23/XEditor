@@ -16,6 +16,7 @@ namespace XEditor.XML_Model
         public Tracks()
         {
             TrackList = new BindingList<Track>();
+            TrackList.RaiseListChangedEvents = true;
         }
 
         // Functionality
