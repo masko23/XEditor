@@ -603,6 +603,30 @@ namespace XEditor
 
                             editstart();
                         }
+                        else
+                        {
+                            Track track;
+                            if((track = scheduleTree.SelectedNode.Tag as Track)!=null)
+                            {
+                                if(schedule.Stations.StationList.Count == 0)
+                                {
+                                    MessageBox.Show("There is no Station available. First add one.");
+                                    return;
+                                }
+
+                                Stop newStop = new Stop(schedule.Stations.StationList[0], 0);
+                                track.Stops.Add(newStop);
+
+                                TreeNode sNode = new TreeNode(newStop.Station.Name);
+                                sNode.Tag = newStop;
+                                scheduleTree.SelectedNode.Nodes.Add(sNode);
+
+                                scheduleTree.SelectedNode = sNode;
+                                scheduleTree.Focus();
+
+                                editStop();
+                            }
+                        }
                     }
                 }
             }
