@@ -280,14 +280,22 @@ namespace XEditor
                 editstartTimepick.Value = DateTime.Parse(start.Time);
                 listBox_startTID.DataSource = parent.TrackList;
 
-                for(int i = 0; i <  parent.TrackList.Count; i++)
+                if (parent.TrackList.Count > 0)
                 {
-                    if(parent.TrackList[i].ID == start.Track.ID)
+                    listBox_startTID.SelectedIndex = 0;
+
+                    if (start.Track != null)
                     {
-                        listBox_startTID.SelectedIndex = i;
+                        for (int i = 0; i < parent.TrackList.Count; i++)
+                        {
+                            if (parent.TrackList[i].ID == start.Track.ID)
+                            {
+                                listBox_startTID.SelectedIndex = i;
+                            }
+                        }
                     }
                 }
-                
+                                
             }
         }
 
@@ -577,6 +585,24 @@ namespace XEditor
                         scheduleTree.Focus();
 
                         editTrack();
+                    }
+                    else
+                    {
+                        Starts starts;
+                        if((starts = scheduleTree.SelectedNode.Tag as Starts)!=null)
+                        {
+                            Start newStart = new Start(null, "work", "00:00");
+                            starts.addStart(newStart);
+
+                            TreeNode sNode = new TreeNode(newStart.Time);
+                            sNode.Tag = newStart;
+                            scheduleTree.SelectedNode.Nodes.Add(sNode);
+
+                            scheduleTree.SelectedNode = sNode;
+                            scheduleTree.Focus();
+
+                            editstart();
+                        }
                     }
                 }
             }
