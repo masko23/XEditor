@@ -561,6 +561,24 @@ namespace XEditor
 
                     editLine();
                 }
+                else
+                {
+                    Tracks tracks;
+                    if((tracks = scheduleTree.SelectedNode.Tag as Tracks)!=null)
+                    { // TODO: known issue: adding new track without savind the editpanel can results tracks with the same id saved upon closing program
+                        Track newTrack = new Track(0);
+                        tracks.addTrack(newTrack);
+
+                        TreeNode tNode = new TreeNode(newTrack.ID.ToString());
+                        tNode.Tag = newTrack;
+                        scheduleTree.SelectedNode.Nodes.Add(tNode);
+
+                        scheduleTree.SelectedNode = tNode;
+                        scheduleTree.Focus();
+
+                        editTrack();
+                    }
+                }
             }
         }
     }
