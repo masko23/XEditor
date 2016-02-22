@@ -221,7 +221,8 @@ namespace XEditor
                 editPanel.Hide();
                 editPanel = null;
 
-                scheduleTree.SelectedNode = null;
+                scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                scheduleTree.Focus();
             }
         }
 
@@ -250,6 +251,8 @@ namespace XEditor
                     if (t.ID == numericUpDown_TID.Value && t != track)
                     {
                         MessageBox.Show("Track ID is already taken.");
+                        scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                        scheduleTree.Focus();
                         return;
                     }
                 }
@@ -260,7 +263,8 @@ namespace XEditor
                 editPanel.Hide();
                 editPanel = null;
 
-                scheduleTree.SelectedNode = null;
+                scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                scheduleTree.Focus();
             }
         }
 
@@ -315,7 +319,8 @@ namespace XEditor
                 editPanel.Hide();
                 editPanel = null;
 
-                scheduleTree.SelectedNode = null;
+                scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                scheduleTree.Focus();
             }
         }
 
@@ -344,6 +349,8 @@ namespace XEditor
                     if(l.Name == textedit_line.Text && l != line)
                     {
                         MessageBox.Show("Line name is already taken.");
+                        scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                        scheduleTree.Focus();
                         return;
                     }
                 }
@@ -354,7 +361,8 @@ namespace XEditor
                 editPanel.Hide();
                 editPanel = null;
 
-                scheduleTree.SelectedNode = null;
+                scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                scheduleTree.Focus();
             }
         }
 
@@ -383,6 +391,8 @@ namespace XEditor
                     if(stat.Name == textBox_station.Text && stat != station)
                     {
                         MessageBox.Show("Station is already exists.");
+                        scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                        scheduleTree.Focus();
                         return;
                     }
                 }
@@ -393,7 +403,8 @@ namespace XEditor
                 editPanel.Hide();
                 editPanel = null;
 
-                scheduleTree.SelectedNode = null;
+                scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
+                scheduleTree.Focus();
             }
         }
 
