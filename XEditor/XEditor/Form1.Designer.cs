@@ -342,6 +342,7 @@
             this.listBox_stopstats.Size = new System.Drawing.Size(220, 368);
             this.listBox_stopstats.Sorted = true;
             this.listBox_stopstats.TabIndex = 9;
+            this.listBox_stopstats.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_stopstats_MouseClick);
             // 
             // numericUpDown_stopdelay
             // 

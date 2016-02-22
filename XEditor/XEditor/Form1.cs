@@ -24,7 +24,7 @@ namespace XEditor
             schedule = new Schedule("Veszprem");
 
             path = Path.Combine(Directory.GetCurrentDirectory(),
-                  "VeSchedule_begin.xml"
+                  "VeSchedule.xml"
                   );
 
             ScheduleParser parser = new ScheduleParser(schedule,path);
@@ -498,6 +498,21 @@ namespace XEditor
                             editPanel = null;
                             scheduleTree.SelectedNode = null;
                         }
+                        else
+                        {
+                            Start start;
+                            if((start = scheduleTree.SelectedNode.Tag as Start)!=null)
+                            {
+                                Starts parent = scheduleTree.SelectedNode.Parent.Tag as Starts;
+
+                                parent.StartList.Remove(start);
+                                scheduleTree.SelectedNode.Remove();
+
+                                editPanel.Hide();
+                                editPanel = null;
+                                scheduleTree.SelectedNode = null;
+                            }
+                        }
                     }
                 }
             }
@@ -641,6 +656,12 @@ namespace XEditor
                     }
                 }
             }
+        }
+
+        private void listBox_stopstats_MouseClick(object sender, MouseEventArgs e)
+        {
+            numericUpDown_stopdelay.Focus();
+            numericUpDown_stopdelay.Select(0, numericUpDown_stopdelay.Value.ToString().Length);
         }
     }
 }
