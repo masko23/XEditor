@@ -119,7 +119,7 @@ namespace XEditor
                 // add starts
                 foreach(Start start in line.Starts.StartList)
                 {
-                    TreeNode node = new TreeNode(start.Time);
+                    TreeNode node = new TreeNode(start.ToString());
                     node.Tag = start;
                     tStarts.Nodes.Add(node);
                 }
@@ -199,7 +199,7 @@ namespace XEditor
                                     Start start;
                                     if ((start = e.Node.Tag as Start) != null)
                                     {
-                                        xLogger.add("Selected: " + start.Time);
+                                        xLogger.add("Selected: " + start.ToString());
                                         editstart();
                                     }
                                 }
@@ -332,7 +332,7 @@ namespace XEditor
                 start.Active = editstartActive.Text;
                 start.Time = editstartTimepick.Value.ToString("HH:mm");
 
-                scheduleTree.SelectedNode.Text = start.Time;
+                scheduleTree.SelectedNode.Text = start.ToString();
 
                 editPanel.Hide();
                 editPanel = null;
@@ -648,7 +648,7 @@ namespace XEditor
                             Start newStart = new Start(null, "work", "00:00");
                             starts.addStart(newStart);
 
-                            TreeNode sNode = new TreeNode(newStart.Time);
+                            TreeNode sNode = new TreeNode(newStart.ToString());
                             sNode.Tag = newStart;
                             scheduleTree.SelectedNode.Nodes.Add(sNode);
 

@@ -20,5 +20,13 @@ namespace XEditor.XML_Model
             Active = p_active;
             Time = p_time;
         }
+
+        public override string ToString()
+        {
+            string retstr = Time + " - " + Active + " - " + Track.ID.ToString();
+
+            return retstr;
+        }
+
     }
 }
