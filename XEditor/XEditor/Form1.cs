@@ -110,7 +110,7 @@ namespace XEditor
 
                     foreach(Stop stop in track.Stops)
                     {
-                        TreeNode node = new TreeNode(stop.Station.Name);
+                        TreeNode node = new TreeNode(stop.ToString());
                         node.Tag = stop;
                         tTrack.Nodes.Add(node);
                     }
@@ -184,7 +184,7 @@ namespace XEditor
                             Stop stop;
                             if ((stop = e.Node.Tag as Stop) != null)
                             {
-                                xLogger.add("Selected: " + stop.Station.Name);
+                                xLogger.add("Selected: " + stop.ToString());
                                 editStop();
                             }
                             else // bring out this part to same level as Tracks
@@ -234,7 +234,7 @@ namespace XEditor
 
                 stop.Delay = (int)numericUpDown_stopdelay.Value;
 
-                scheduleTree.SelectedNode.Text = stop.Station.Name;
+                scheduleTree.SelectedNode.Text = stop.ToString();
 
                 editPanel.Hide();
                 editPanel = null;
@@ -450,7 +450,7 @@ namespace XEditor
 
                     foreach(Stop stop in removeList)
                     {
-                        xLogger.add("Stop is removed: " + stop.Station.Name + " from " + line.Name + "/" + track.ID);
+                        xLogger.add("Stop is removed: " + stop.ToString() + " from " + line.Name + "/" + track.ID);
                         track.Stops.Remove(stop);
                     }
 
@@ -671,7 +671,7 @@ namespace XEditor
                                 Stop newStop = new Stop(schedule.Stations.StationList[0], 0);
                                 track.Stops.Add(newStop);
 
-                                TreeNode sNode = new TreeNode(newStop.Station.Name);
+                                TreeNode sNode = new TreeNode(newStop.ToString());
                                 sNode.Tag = newStop;
                                 scheduleTree.SelectedNode.Nodes.Add(sNode);
 

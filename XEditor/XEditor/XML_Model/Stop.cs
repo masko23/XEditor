@@ -18,5 +18,12 @@ namespace XEditor.XML_Model
             Station = p_stat;
             Delay = p_del;
         }
+
+        public override string ToString()
+        {
+            string retstr = Delay.ToString("00") + " | " + Station.ToString();
+
+            return retstr;
+        }
     }
 }
