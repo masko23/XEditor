@@ -66,6 +66,7 @@
             this.button_savesched = new System.Windows.Forms.Button();
             this.fileloadTextB = new System.Windows.Forms.TextBox();
             this.button_newsch = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
@@ -74,13 +75,16 @@
             this.editpanel_stop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_stopdelay)).BeginInit();
             this.editpanel_Station.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // scheduleTree
             // 
+            this.scheduleTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleTree.Location = new System.Drawing.Point(12, 12);
             this.scheduleTree.Name = "scheduleTree";
-            this.scheduleTree.Size = new System.Drawing.Size(346, 731);
+            this.scheduleTree.Size = new System.Drawing.Size(342, 748);
             this.scheduleTree.TabIndex = 1;
             this.scheduleTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.scheduleTree_AfterSelect);
             // 
@@ -445,9 +449,10 @@
             // 
             // button_savesched
             // 
-            this.button_savesched.Location = new System.Drawing.Point(460, 702);
+            this.button_savesched.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_savesched.Location = new System.Drawing.Point(96, 40);
             this.button_savesched.Name = "button_savesched";
-            this.button_savesched.Size = new System.Drawing.Size(87, 29);
+            this.button_savesched.Size = new System.Drawing.Size(87, 27);
             this.button_savesched.TabIndex = 9;
             this.button_savesched.Text = "Save schedule";
             this.button_savesched.UseVisualStyleBackColor = true;
@@ -459,32 +464,43 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fileloadTextB.BackColor = System.Drawing.Color.White;
-            this.fileloadTextB.Location = new System.Drawing.Point(367, 665);
+            this.fileloadTextB.Location = new System.Drawing.Point(3, 3);
             this.fileloadTextB.Name = "fileloadTextB";
             this.fileloadTextB.ReadOnly = true;
-            this.fileloadTextB.Size = new System.Drawing.Size(523, 20);
+            this.fileloadTextB.Size = new System.Drawing.Size(472, 20);
             this.fileloadTextB.TabIndex = 10;
             this.fileloadTextB.Text = "<Click on this box to load a file>";
             this.fileloadTextB.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // button_newsch
             // 
-            this.button_newsch.Location = new System.Drawing.Point(367, 702);
+            this.button_newsch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_newsch.Location = new System.Drawing.Point(3, 40);
             this.button_newsch.Name = "button_newsch";
-            this.button_newsch.Size = new System.Drawing.Size(87, 29);
+            this.button_newsch.Size = new System.Drawing.Size(87, 27);
             this.button_newsch.TabIndex = 11;
             this.button_newsch.Text = "New schedule";
             this.button_newsch.UseVisualStyleBackColor = true;
             this.button_newsch.Click += new System.EventHandler(this.button_newsch_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.fileloadTextB);
+            this.panel1.Controls.Add(this.button_newsch);
+            this.panel1.Controls.Add(this.button_savesched);
+            this.panel1.Location = new System.Drawing.Point(364, 674);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(522, 86);
+            this.panel1.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 767);
-            this.Controls.Add(this.button_newsch);
-            this.Controls.Add(this.fileloadTextB);
-            this.Controls.Add(this.button_savesched);
+            this.ClientSize = new System.Drawing.Size(898, 784);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.editpanel_stop);
             this.Controls.Add(this.editpanel_start);
             this.Controls.Add(this.editpanel_line);
@@ -508,8 +524,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_stopdelay)).EndInit();
             this.editpanel_Station.ResumeLayout(false);
             this.editpanel_Station.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -552,6 +569,7 @@
         private System.Windows.Forms.Button button_savesched;
         private System.Windows.Forms.TextBox fileloadTextB;
         private System.Windows.Forms.Button button_newsch;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
