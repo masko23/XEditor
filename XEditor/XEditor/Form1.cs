@@ -736,5 +736,24 @@ namespace XEditor
             LoadScheduleXML("Veszprem",path);
    
         }
+
+        private void checkBox_collapse_CheckedChanged(object sender, EventArgs e)
+        {
+            bool collapse = checkBox_collapse.Checked ? true : false;
+
+            if(collapse)
+            {
+                scheduleTree.CollapseAll();
+                toolTip1.SetToolTip(checkBox_collapse, "Expand all");
+                
+            }
+            else
+            {
+                scheduleTree.ExpandAll();
+                if(scheduleTree.Nodes.Count > 0) scheduleTree.Nodes[0].EnsureVisible();
+                toolTip1.SetToolTip(checkBox_collapse, "Collapse all");
+            }
+            
+        }
     }
 }

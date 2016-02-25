@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.scheduleTree = new System.Windows.Forms.TreeView();
             this.butNew = new System.Windows.Forms.Button();
             this.butRemove = new System.Windows.Forms.Button();
@@ -67,6 +68,8 @@
             this.fileloadTextB = new System.Windows.Forms.TextBox();
             this.button_newsch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox_collapse = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelButtons.SuspendLayout();
             this.editpanel_line.SuspendLayout();
             this.editpanel_start.SuspendLayout();
@@ -495,11 +498,23 @@
             this.panel1.Size = new System.Drawing.Size(522, 86);
             this.panel1.TabIndex = 12;
             // 
+            // checkBox_collapse
+            // 
+            this.checkBox_collapse.AutoSize = true;
+            this.checkBox_collapse.Location = new System.Drawing.Point(355, 12);
+            this.checkBox_collapse.Name = "checkBox_collapse";
+            this.checkBox_collapse.Size = new System.Drawing.Size(15, 14);
+            this.checkBox_collapse.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.checkBox_collapse, "Collapse all");
+            this.checkBox_collapse.UseVisualStyleBackColor = true;
+            this.checkBox_collapse.CheckedChanged += new System.EventHandler(this.checkBox_collapse_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 784);
+            this.Controls.Add(this.checkBox_collapse);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.editpanel_stop);
             this.Controls.Add(this.editpanel_start);
@@ -509,7 +524,7 @@
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.scheduleTree);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ScheduleEditor v0.160225";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panelButtons.ResumeLayout(false);
             this.editpanel_line.ResumeLayout(false);
@@ -527,6 +542,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -570,6 +586,8 @@
         private System.Windows.Forms.TextBox fileloadTextB;
         private System.Windows.Forms.Button button_newsch;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox checkBox_collapse;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
