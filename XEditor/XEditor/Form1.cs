@@ -23,13 +23,24 @@ namespace XEditor
             xLogger.LOGGING_ACTIVE = false;
             if (xLogger.LOGGING_ACTIVE) logger.Show();
 
-            schedule = new Schedule("Veszprem");
-
             path = Path.Combine(Directory.GetCurrentDirectory(),
-                  "VeSchedule.xml"
-                  );
+                   "VeSchedule.xml"
+                   );
 
-            ScheduleParser parser = new ScheduleParser(schedule,path);
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("File not found. Creating an empty database.");
+            }
+
+            LoadScheduleXML("Veszprem",path);
+
+        }
+
+        private void LoadScheduleXML(string name,string _path)
+        {
+            schedule = new Schedule(name);
+
+            ScheduleParser parser = new ScheduleParser(schedule, _path);
             parser.read();
 
             fillScheduleTree();
@@ -37,27 +48,28 @@ namespace XEditor
             scheduleTree.ExpandAll();
 
             this.listBox_stopstats.DataSource = schedule.Stations.StationList;
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (saveSchedule() == false) e.Cancel = true;
+
+        }
+
+        private bool saveSchedule()
+        {
             DialogResult result = MessageBox.Show("Do you want to save the changes?", "Save&Exit", MessageBoxButtons.YesNoCancel);
 
-            switch(result)
+            switch (result)
             {
                 case DialogResult.Yes:
                     schedule.save(path);
-                    logger.Hide();
-                    break;
+                    return true;
                 case DialogResult.No:
-                    logger.Hide();
-                    break;
+                    return true;
                 default:
-                    e.Cancel = true;
-                    break;
+                    return false; // cancel closing form
             }
-
         }
 
         private void fillScheduleTree()
@@ -668,8 +680,47 @@ namespace XEditor
 
         private void button_savesched_Click(object sender, EventArgs e)
         {
-            schedule.save(path);
+            if(path.Equals(""))
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.InitialDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
+                dialog.DefaultExt = "xml";
+
+                dialog.ShowDialog();
+
+                path = dialog.FileName;
+                fileloadTextB.Text = path;
+            }
+
             MessageBox.Show("Schedule is saved to: " + path);
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (saveSchedule() == true)
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.InitialDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
+                dialog.DefaultExt = "xml";
+                dialog.ShowDialog();
+
+                path = dialog.FileName;
+                fileloadTextB.Text = path;
+
+                LoadScheduleXML("Veszprem", path);
+            }
+
+        }
+
+        private void button_newsch_Click(object sender, EventArgs e)
+        {
+            path = "";
+            fileloadTextB.Text = path;
+
+            MessageBox.Show("Creating a new database.");
+
+            LoadScheduleXML("Veszprem",path);
+   
         }
     }
 }

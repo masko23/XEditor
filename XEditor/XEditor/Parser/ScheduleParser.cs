@@ -31,8 +31,7 @@ namespace XEditor.Parser
                     reader = new XmlTextReader(path);
                 }
                 else
-                {
-                    MessageBox.Show("File not found. Creating empty database...");
+                { 
                     path = null;
                 }
             }
