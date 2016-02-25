@@ -423,6 +423,11 @@ namespace XEditor
 
                 scheduleTree.SelectedNode = scheduleTree.SelectedNode.Parent;
                 scheduleTree.Focus();
+
+                listBox_stopstats.DataSource = null;
+                listBox_stopstats.Refresh();
+                listBox_stopstats.DataSource = schedule.Stations.StationList;
+                listBox_stopstats.Refresh();
             }
         }
 
@@ -579,6 +584,11 @@ namespace XEditor
                 stNode.Tag = newStation;
 
                 schedule.Stations.addStation(newStation);
+                listBox_stopstats.DataSource = null;
+                listBox_stopstats.Refresh();
+                listBox_stopstats.DataSource = schedule.Stations.StationList;
+                listBox_stopstats.Refresh();
+
                 scheduleTree.SelectedNode.Nodes.Add(stNode);
 
                 scheduleTree.SelectedNode = stNode;
