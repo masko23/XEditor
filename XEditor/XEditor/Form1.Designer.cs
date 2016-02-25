@@ -455,11 +455,14 @@
             // 
             // fileloadTextB
             // 
+            this.fileloadTextB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fileloadTextB.BackColor = System.Drawing.Color.White;
             this.fileloadTextB.Location = new System.Drawing.Point(367, 665);
             this.fileloadTextB.Name = "fileloadTextB";
             this.fileloadTextB.ReadOnly = true;
-            this.fileloadTextB.Size = new System.Drawing.Size(608, 20);
+            this.fileloadTextB.Size = new System.Drawing.Size(523, 20);
             this.fileloadTextB.TabIndex = 10;
             this.fileloadTextB.Text = "<Click on this box to load a file>";
             this.fileloadTextB.Click += new System.EventHandler(this.textBox1_Click);
@@ -478,7 +481,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 767);
+            this.ClientSize = new System.Drawing.Size(902, 767);
             this.Controls.Add(this.button_newsch);
             this.Controls.Add(this.fileloadTextB);
             this.Controls.Add(this.button_savesched);
