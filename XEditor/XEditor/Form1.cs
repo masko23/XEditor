@@ -31,6 +31,10 @@ namespace XEditor
             {
                 MessageBox.Show("File not found. Creating an empty database.");
             }
+            else
+            {
+                fileloadTextB.Text = path;
+            }
 
             LoadScheduleXML("Veszprem",path);
 
@@ -683,7 +687,7 @@ namespace XEditor
             if(path.Equals(""))
             {
                 SaveFileDialog dialog = new SaveFileDialog();
-                dialog.InitialDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
+                dialog.InitialDirectory = Directory.GetCurrentDirectory();
                 dialog.DefaultExt = "xml";
 
                 dialog.ShowDialog();
@@ -700,7 +704,7 @@ namespace XEditor
             if (saveSchedule() == true)
             {
                 OpenFileDialog dialog = new OpenFileDialog();
-                dialog.InitialDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
+                dialog.InitialDirectory = Directory.GetCurrentDirectory();
                 dialog.DefaultExt = "xml";
                 dialog.ShowDialog();
 

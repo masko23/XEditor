@@ -78,8 +78,7 @@
             // 
             // scheduleTree
             // 
-            this.scheduleTree.Dock = System.Windows.Forms.DockStyle.Left;
-            this.scheduleTree.Location = new System.Drawing.Point(0, 0);
+            this.scheduleTree.Location = new System.Drawing.Point(-55, 0);
             this.scheduleTree.Name = "scheduleTree";
             this.scheduleTree.Size = new System.Drawing.Size(346, 731);
             this.scheduleTree.TabIndex = 1;
@@ -109,7 +108,7 @@
             // 
             this.panelButtons.Controls.Add(this.butNew);
             this.panelButtons.Controls.Add(this.butRemove);
-            this.panelButtons.Location = new System.Drawing.Point(352, 12);
+            this.panelButtons.Location = new System.Drawing.Point(309, 12);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(164, 32);
             this.panelButtons.TabIndex = 5;
@@ -120,7 +119,7 @@
             this.editpanel_line.Controls.Add(this.button_saveline);
             this.editpanel_line.Controls.Add(this.textedit_line);
             this.editpanel_line.Controls.Add(this.editlabel_line);
-            this.editpanel_line.Location = new System.Drawing.Point(355, 49);
+            this.editpanel_line.Location = new System.Drawing.Point(312, 49);
             this.editpanel_line.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_line.Name = "editpanel_line";
             this.editpanel_line.Size = new System.Drawing.Size(150, 78);
@@ -176,7 +175,7 @@
             this.editpanel_start.Controls.Add(this.editstartActive);
             this.editpanel_start.Controls.Add(this.label2);
             this.editpanel_start.Controls.Add(this.label1);
-            this.editpanel_start.Location = new System.Drawing.Point(355, 59);
+            this.editpanel_start.Location = new System.Drawing.Point(312, 59);
             this.editpanel_start.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_start.Name = "editpanel_start";
             this.editpanel_start.Size = new System.Drawing.Size(151, 255);
@@ -278,7 +277,7 @@
             this.editpanel_track.Controls.Add(this.numericUpDown_TID);
             this.editpanel_track.Controls.Add(this.labelTrackId);
             this.editpanel_track.Controls.Add(this.labelTrack);
-            this.editpanel_track.Location = new System.Drawing.Point(355, 49);
+            this.editpanel_track.Location = new System.Drawing.Point(312, 49);
             this.editpanel_track.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_track.Name = "editpanel_track";
             this.editpanel_track.Size = new System.Drawing.Size(159, 103);
@@ -329,7 +328,7 @@
             this.editpanel_stop.Controls.Add(this.label_delay);
             this.editpanel_stop.Controls.Add(this.label_station);
             this.editpanel_stop.Controls.Add(this.label_stop);
-            this.editpanel_stop.Location = new System.Drawing.Point(351, 49);
+            this.editpanel_stop.Location = new System.Drawing.Point(308, 49);
             this.editpanel_stop.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_stop.Name = "editpanel_stop";
             this.editpanel_stop.Size = new System.Drawing.Size(300, 487);
@@ -401,7 +400,7 @@
             this.editpanel_Station.Controls.Add(this.textBox_station);
             this.editpanel_Station.Controls.Add(this.label4);
             this.editpanel_Station.Controls.Add(this.label_editStation);
-            this.editpanel_Station.Location = new System.Drawing.Point(351, 49);
+            this.editpanel_Station.Location = new System.Drawing.Point(308, 49);
             this.editpanel_Station.Margin = new System.Windows.Forms.Padding(2);
             this.editpanel_Station.Name = "editpanel_Station";
             this.editpanel_Station.Padding = new System.Windows.Forms.Padding(2);
@@ -446,7 +445,7 @@
             // 
             // button_savesched
             // 
-            this.button_savesched.Location = new System.Drawing.Point(965, 648);
+            this.button_savesched.Location = new System.Drawing.Point(393, 690);
             this.button_savesched.Name = "button_savesched";
             this.button_savesched.Size = new System.Drawing.Size(87, 29);
             this.button_savesched.TabIndex = 9;
@@ -457,7 +456,7 @@
             // fileloadTextB
             // 
             this.fileloadTextB.BackColor = System.Drawing.Color.White;
-            this.fileloadTextB.Location = new System.Drawing.Point(351, 653);
+            this.fileloadTextB.Location = new System.Drawing.Point(300, 653);
             this.fileloadTextB.Name = "fileloadTextB";
             this.fileloadTextB.ReadOnly = true;
             this.fileloadTextB.Size = new System.Drawing.Size(608, 20);
@@ -467,7 +466,7 @@
             // 
             // button_newsch
             // 
-            this.button_newsch.Location = new System.Drawing.Point(965, 690);
+            this.button_newsch.Location = new System.Drawing.Point(300, 690);
             this.button_newsch.Name = "button_newsch";
             this.button_newsch.Size = new System.Drawing.Size(87, 29);
             this.button_newsch.TabIndex = 11;
@@ -479,7 +478,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 731);
+            this.ClientSize = new System.Drawing.Size(1009, 752);
             this.Controls.Add(this.button_newsch);
             this.Controls.Add(this.fileloadTextB);
             this.Controls.Add(this.button_savesched);
