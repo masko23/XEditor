@@ -645,7 +645,19 @@ namespace XEditor
                         Starts starts;
                         if((starts = scheduleTree.SelectedNode.Tag as Starts)!=null)
                         {
-                            Start newStart = new Start(null, "work", "00:00");
+                            Tracks parent = scheduleTree.SelectedNode.Parent.Nodes[0].Tag as Tracks;
+                            Track defaultTrack = null; // first track found in tracks node
+                            if(parent.TrackList.Count > 0)
+                            {
+                                defaultTrack = parent.TrackList[0];
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please create Track first.");
+                                return;
+                            }
+                            
+                            Start newStart = new Start(defaultTrack, "work", "00:00");
                             starts.addStart(newStart);
 
                             TreeNode sNode = new TreeNode(newStart.ToString());
