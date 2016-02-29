@@ -717,7 +717,7 @@ namespace XEditor
                 path = dialog.FileName;
                 fileloadTextB.Text = path;
             }
-
+            saveSchedule();
             MessageBox.Show("Schedule is saved to: " + path);
         }
 
