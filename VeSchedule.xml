@@ -33,6 +33,16 @@
 		<Station id="29">Vámosi u. 24.</Station>
 		<Station id="30">Pázmándi u. 24.</Station>
 		<Station id="31">SZTK-rendelő</Station>
+		<Station id="32">Csererdő</Station>
+		<Station id="33">Bakony Művek</Station>
+		<Station id="34">Valeo</Station>
+		<Station id="35">Házgyár</Station>
+		<Station id="36">Volán-telep</Station>
+		<Station id="37">Völgyhíd tér</Station>
+		<Station id="38">Pipacs u.</Station>
+		<Station id="40">Őrház u.</Station>
+		<Station id="41">Haszkovó u.</Station>
+		<Station id="42">Haszkovó forduló</Station>
 	</Stations>
 	<Lines>
 		<Line name="1a">
@@ -317,6 +327,115 @@
 				<Start track="0" active="weekend">20:37</Start>
 				<Start track="0" active="work">21:05</Start>
 				<Start track="0" active="work">21:35</Start>
+			</Starts>
+		</Line>
+		<Line name="3a">
+			<Tracks>
+				<Track id = "0">
+					<Stop station="32">0</Stop>
+					<Stop station="33">1</Stop>
+					<Stop station="35">2</Stop>
+					<Stop station="17">3</Stop>
+					<Stop station="18">4</Stop>
+					<Stop station="19">5</Stop>
+					<Stop station="20">6</Stop>
+					<Stop station="21">7</Stop>
+					<Stop station="36">8</Stop>
+					<Stop station="37">9</Stop>
+					<Stop station="26">10</Stop>
+					<Stop station="25">12</Stop>
+					<Stop station="24">14</Stop>
+					<Stop station="0">16</Stop>
+					<Stop station="1">18</Stop>
+					<Stop station="38">19</Stop>
+					<Stop station="40">20</Stop>
+					<Stop station="41">22</Stop>
+					<Stop station="42">23</Stop>
+				</Track>
+				<Track id = "1">
+					<Stop station="32">0</Stop>
+					<Stop station="33">1</Stop>
+					<Stop station="34">3</Stop>
+					<Stop station="35">5</Stop>
+					<Stop station="17">6</Stop>
+					<Stop station="18">7</Stop>
+					<Stop station="19">8</Stop>
+					<Stop station="20">9</Stop>
+					<Stop station="21">10</Stop>
+					<Stop station="36">11</Stop>
+					<Stop station="37">12</Stop>
+					<Stop station="26">13</Stop>
+					<Stop station="25">15</Stop>
+					<Stop station="24">17</Stop>
+					<Stop station="0">19</Stop>
+					<Stop station="1">21</Stop>
+					<Stop station="38">22</Stop>
+					<Stop station="40">23</Stop>
+					<Stop station="41">25</Stop>
+					<Stop station="42">26</Stop>
+				</Track>
+			</Tracks>
+			<Starts>
+				<Start track="0" active="work">05:00</Start>
+				<Start track="0" active="weekend">05:00</Start>
+				<Start track="0" active="work">05:29</Start>
+				<Start track="0" active="work">05:49</Start>
+				<Start track="0" active="work">06:09</Start>
+				<Start track="1" active="weekend">06:20</Start>
+				<Start track="0" active="work">06:29</Start>
+				<Start track="0" active="work">06:49</Start>
+				<Start track="0" active="work">07:09</Start>
+				<Start track="1" active="weekend">07:20</Start>
+				<Start track="0" active="work">07:29</Start>
+				<Start track="0" active="school">07:39</Start>
+				<Start track="0" active="work">07:49</Start>
+				<Start track="0" active="work">08:09</Start>
+				<Start track="0" active="weekend">08:20</Start>
+				<Start track="0" active="work">08:39</Start>
+				<Start track="0" active="work">09:09</Start>
+				<Start track="0" active="weekend">09:20</Start>
+				<Start track="1" active="work">09:39</Start>
+				<Start track="0" active="work">10:09</Start>
+				<Start track="0" active="weekend">10:20</Start>
+				<Start track="0" active="work">10:39</Start>
+				<Start track="0" active="work">11:09</Start>
+				<Start track="0" active="weekend">11:20</Start>
+				<Start track="1" active="work">11:39</Start>
+				<Start track="0" active="work">12:09</Start>
+				<Start track="0" active="weekend">12:20</Start>
+				<Start track="0" active="work">12:39</Start>
+				<Start track="0" active="work">13:09</Start>
+				<Start track="0" active="weekend">13:20</Start>
+				<Start track="0" active="work">13:29</Start>
+				<Start track="0" active="work">13:49</Start>
+				<Start track="1" active="work">14:09</Start>
+				<Start track="1" active="weekend">14:20</Start>
+				<Start track="0" active="work">14:29</Start>
+				<Start track="0" active="work">14:49</Start>
+				<Start track="0" active="work">15:09</Start>
+				<Start track="0" active="weekend">15:20</Start>
+				<Start track="0" active="work">15:29</Start>
+				<Start track="0" active="work">15:49</Start>
+				<Start track="0" active="work">16:09</Start>
+				<Start track="0" active="weekend">16:20</Start>
+				<Start track="1" active="work">16:39</Start>
+				<Start track="1" active="work">17:09</Start>
+				<Start track="0" active="weekend">17:20</Start>
+				<Start track="0" active="work">17:39</Start>
+				<Start track="0" active="work">18:09</Start>
+				<Start track="0" active="weekend">18:20</Start>
+				<Start track="0" active="work">18:39</Start>
+				<Start track="0" active="work">19:09</Start>
+				<Start track="0" active="weekend">19:20</Start>
+				<Start track="0" active="work">19:39</Start>
+				<Start track="0" active="work">20:09</Start>
+				<Start track="0" active="weekend">20:20</Start>
+				<Start track="0" active="work">20:39</Start>
+				<Start track="0" active="work">21:09</Start>
+				<Start track="0" active="weekend">21:20</Start>
+				<Start track="0" active="work">21:39</Start>
+				<Start track="0" active="work">22:09</Start>
+				<Start track="1" active="weekend">22:08</Start>
 			</Starts>
 		</Line>
 	</Lines>
