@@ -68,6 +68,7 @@ namespace XEditor
             {
                 case DialogResult.Yes:
                     schedule.save(path);
+                    MessageBox.Show("Schedule is saved to: " + path);
                     return true;
                 case DialogResult.No:
                     return true;
@@ -222,6 +223,8 @@ namespace XEditor
                 editPanel.Show();
                 listBox_stopstats.SelectedItem = stop.Station;
                 numericUpDown_stopdelay.Value = stop.Delay;
+
+                listBox_stopstats.Focus();
             }
         }
 
@@ -718,7 +721,6 @@ namespace XEditor
                 fileloadTextB.Text = path;
             }
             saveSchedule();
-            MessageBox.Show("Schedule is saved to: " + path);
         }
 
         private void textBox1_Click(object sender, EventArgs e)

@@ -438,5 +438,54 @@
 				<Start track="1" active="weekend">22:08</Start>
 			</Starts>
 		</Line>
+		<Line name="3b">
+			<Tracks>
+				<Track id = "0">
+					<Stop station="42">0</Stop>
+					<Stop station="41">1</Stop>
+					<Stop station="40">3</Stop>
+					<Stop station="38">4</Stop>
+					<Stop station="1">5</Stop>
+					<Stop station="0">7</Stop>
+					<Stop station="24">9</Stop>
+					<Stop station="25">11</Stop>
+					<Stop station="26">13</Stop>
+					<Stop station="37">14</Stop>
+					<Stop station="36">15</Stop>
+					<Stop station="21">16</Stop>
+					<Stop station="20">17</Stop>
+					<Stop station="19">18</Stop>
+					<Stop station="18">19</Stop>
+					<Stop station="17">20</Stop>
+					<Stop station="35">21</Stop>
+					<Stop station="33">22</Stop>
+					<Stop station="32">23</Stop>
+				</Track>
+				<Track id = "1">
+					<Stop station="42">0</Stop>
+					<Stop station="41">1</Stop>
+					<Stop station="40">3</Stop>
+					<Stop station="38">4</Stop>
+					<Stop station="1">5</Stop>
+					<Stop station="0">7</Stop>
+					<Stop station="24">9</Stop>
+					<Stop station="25">11</Stop>
+					<Stop station="26">13</Stop>
+					<Stop station="37">14</Stop>
+					<Stop station="36">15</Stop>
+					<Stop station="21">16</Stop>
+					<Stop station="20">17</Stop>
+					<Stop station="19">18</Stop>
+					<Stop station="18">19</Stop>
+					<Stop station="17">20</Stop>
+					<Stop station="35">21</Stop>
+					<Stop station="34">23</Stop>
+					<Stop station="33">25</Stop>
+					<Stop station="32">26</Stop>
+				</Track>
+			</Tracks>
+			<Starts>
+			</Starts>
+		</Line>
 	</Lines>
 </Schedule>
