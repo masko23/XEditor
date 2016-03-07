@@ -250,8 +250,16 @@
             "sat",
             "sun",
             "school",
-            "*1",
-            "*2"});
+            "work*1",
+            "weekend*1",
+            "sat*1",
+            "sun*1",
+            "school*1",
+            "work*2",
+            "weekend*2",
+            "sat*2",
+            "sun*2",
+            "school*2"});
             this.editstartActive.Location = new System.Drawing.Point(41, 37);
             this.editstartActive.Margin = new System.Windows.Forms.Padding(2);
             this.editstartActive.Name = "editstartActive";
