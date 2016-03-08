@@ -1463,5 +1463,51 @@
 				<Start track="1" active="weekend*2">18:12</Start>
 			</Starts>
 		</Line>
+		<Line name="10a">
+			<Tracks>
+				<Track id = "0">
+					<Stop station="60">0</Stop>
+					<Stop station="59">1</Stop>
+					<Stop station="58">2</Stop>
+					<Stop station="81">3</Stop>
+					<Stop station="56">4</Stop>
+					<Stop station="72">6</Stop>
+					<Stop station="73">7</Stop>
+					<Stop station="24">9</Stop>
+					<Stop station="25">11</Stop>
+					<Stop station="26">13</Stop>
+					<Stop station="37">100</Stop>
+					<Stop station="36">15</Stop>
+					<Stop station="22">16</Stop>
+				</Track>
+			</Tracks>
+			<Starts>
+				<Start track="0" active="work">06:30</Start>
+				<Start track="0" active="work">07:10</Start>
+			</Starts>
+		</Line>
+		<Line name="10b">
+			<Tracks>
+				<Track id = "0">
+					<Stop station="22">0</Stop>
+					<Stop station="36">1</Stop>
+					<Stop station="37">2</Stop>
+					<Stop station="26">3</Stop>
+					<Stop station="25">5</Stop>
+					<Stop station="24">7</Stop>
+					<Stop station="73">9</Stop>
+					<Stop station="72">10</Stop>
+					<Stop station="56">12</Stop>
+					<Stop station="81">13</Stop>
+					<Stop station="58">14</Stop>
+					<Stop station="59">15</Stop>
+					<Stop station="60">16</Stop>
+				</Track>
+			</Tracks>
+			<Starts>
+				<Start track="0" active="work">06:50</Start>
+				<Start track="0" active="work">22:10</Start>
+			</Starts>
+		</Line>
 	</Lines>
 </Schedule>
