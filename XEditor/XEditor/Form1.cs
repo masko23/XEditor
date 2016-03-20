@@ -234,7 +234,6 @@ namespace XEditor
             if ((stop = scheduleTree.SelectedNode.Tag as Stop) != null)
             {
                 stop.Station = (Station)listBox_stopstats.SelectedItem;
-
                 stop.Delay = (int)numericUpDown_stopdelay.Value;
 
                 scheduleTree.SelectedNode.Text = stop.ToString();
