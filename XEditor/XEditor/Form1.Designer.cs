@@ -250,6 +250,7 @@
             "sat",
             "sun",
             "school",
+            "noschoolwork",
             "work*1",
             "weekend*1",
             "sat*1",
